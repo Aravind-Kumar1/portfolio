@@ -13,19 +13,19 @@ const services: Service[] = [
     {
         title: "Web Development",
         icon: Code,
-        image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop&crop=center",
+        image: "/hero.png",
         description: "Custom web applications built with modern technologies",
     },
     {
         title: "Web Design",
         icon: Palette,
-        image: "https://images.unsplash.com/photo-1558655146-364adaf1fcc9?w=400&h=300&fit=crop&crop=center",
+        image: "/hero.png",
         description: "Beautiful, user-centered designs that convert",
     },
     {
         title: "App Development",
         icon: Smartphone,
-        image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=300&fit=crop&crop=center",
+        image: "/hero.png",
         description: "Native and cross-platform mobile applications",
     },
 ];

@@ -8,8 +8,7 @@ import MyServices from "@/components/sections/myservices";
 import CTASection from "@/components/sections/ctasection";
 import PortfolioLayout from "@/components/sections/portfoliolayout ";
 import PremiumPortfolio from "@/components/sections/portfoliolayout ";
-import AnimatedTextReveal from "@/components/sections/AnimatedTextReveal";
-import {TextHoverEffect} from "@/components/sections/text-hover-effect";
+
 
 export default function HomePage() {
   return (
@@ -29,7 +28,7 @@ export default function HomePage() {
           <PremiumPortfolio/>
           <Testimonials/>
           <ContactPreview/>
-          <TextHoverEffect/>
+
       </main>
   )
 }

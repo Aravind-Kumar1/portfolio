@@ -17,7 +17,7 @@ export default function Services() {
                         objectPosition: 'center center',
                     }}
                 >
-                    <source src="/sri-sec.webm" type="video/webm" />
+                    <source src="/sri-sec.wembm" type="video/webm" />
                     <source src="/sri-sec.mp4" type="video/mp4" />
                 </video>
 

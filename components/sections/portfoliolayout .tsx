@@ -88,7 +88,7 @@ const PremiumPortfolio: React.FC = () => {
                 "Maintained 99% uptime with lightweight deployment"
             ],
             isLive: true,
-            image: "https://images.unsplash.com/photo-1516321310763-3830f5b37e9f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+            image: "/hero.png",
         },
         {
             id: 3,
@@ -101,7 +101,7 @@ const PremiumPortfolio: React.FC = () => {
                 "Built user dashboards with seamless flows"
             ],
             isLive: true,
-            image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+            image: "/hero.png",
         },
         {
             id: 4,
@@ -113,7 +113,7 @@ const PremiumPortfolio: React.FC = () => {
                 "Multi-vendor support"
             ],
             isLive: true,
-            image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+            image: "/hero.png",
         },
         {
             id: 5,
@@ -125,7 +125,7 @@ const PremiumPortfolio: React.FC = () => {
                 "Advanced user engagement features"
             ],
             isLive: true,
-            image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+            image: "/hero.png",
         },
         {
             id: 6,
@@ -137,7 +137,7 @@ const PremiumPortfolio: React.FC = () => {
                 "Social fitness challenges"
             ],
             isLive: true,
-            image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+            image: "/hero.png",
         },
     ];
 

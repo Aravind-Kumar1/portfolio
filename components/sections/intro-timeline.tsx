@@ -1,17 +1,13 @@
 "use client";
 
-import { Card, CardContent } from "@/components/ui/card";
 import {
   GraduationCap,
-  Code,
-  Briefcase,
-  Award,
+  Smartphone,
   BookOpen,
   Globe,
-  Smartphone,
   Shield,
+  Briefcase,
   Trophy,
-  CheckCircle,
 } from "lucide-react";
 import { motion, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
@@ -110,17 +106,29 @@ export default function IntroTimeline() {
         <div className="container mx-auto px-4 max-w-6xl">
           {/* Header */}
           <motion.div
-              className="text-center mb-20"
+              className="text-left mb-8 md:mb-12 lg:mb-16"
               initial={{ opacity: 0, y: -30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
           >
-            <div className="inline-block px-6 py-2 bg-white/10 rounded-full border border-white/20 backdrop-blur-sm mb-8">
-              <span className="text-white text-sm font-medium tracking-wider">MY JOURNEY</span>
+            <div className="inline-block px-3 py-1 sm:px-4 sm:py-2 bg-white/10 rounded-full border border-white/20 mb-4 md:mb-6">
+            <span
+                className="text-white text-xs sm:text-sm font-medium"
+                style={{ fontFamily: "'Poppins', sans-serif" }}
+            >
+              MY JOURNEY
+            </span>
             </div>
-            <h2 className="text-5xl md:text-6xl font-bold text-white mb-4">From Dreamer to</h2>
-            <h2 className="text-5xl md:text-6xl font-bold text-blue-400 mb-6">Developer</h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            <h2
+                className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 text-white whitespace-normal md:whitespace-nowrap"
+                style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 550, lineHeight: 1.2 }}
+            >
+              From Dreamer to Developer
+            </h2>
+            <p
+                className="text-gray-400 text-sm md:text-base max-w-sm"
+                style={{ fontFamily: "'Poppins', sans-serif" }}
+            >
               A passionate journey through code, innovation, and continuous learning
             </p>
           </motion.div>
@@ -129,54 +137,60 @@ export default function IntroTimeline() {
           <div ref={ref} className="relative pb-20">
             {timelineEvents.map((event, index) => (
                 <div key={index} className="flex justify-start pt-10 md:pt-40 md:gap-10">
-                  {/* Sticky Title Section */}
+                  {/* Sticky Year Section */}
                   <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
                     <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-black flex items-center justify-center">
                       <div className="h-4 w-4 rounded-full bg-blue-400 border border-white/20 p-2" />
                     </div>
-                    <h3 className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-gray-400">
+                    <h3
+                        className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-gray-400"
+                        style={{ fontFamily: "'Poppins', sans-serif" }}
+                    >
                       {event.year}
                     </h3>
                   </div>
 
                   {/* Content Section */}
                   <div className="relative pl-20 pr-4 md:pl-4 w-full">
-                    <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-gray-400">
+                    <h3
+                        className="md:hidden block text-2xl mb-4 text-left font-bold text-gray-400"
+                        style={{ fontFamily: "'Poppins', sans-serif" }}
+                    >
                       {event.year}
                     </h3>
-                    <Card className="bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all duration-500 group">
-                      <CardContent className="p-8">
-                        {/* Avatar */}
-                        <div className="flex justify-center mb-6">
-                          <div className="w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-2xl backdrop-blur-sm">
-                            {event.avatar}
-                          </div>
-                        </div>
-
-                        {/* Category */}
-                        <div className="text-center mb-4">
-                      <span className="inline-block px-3 py-1 bg-blue-400/20 text-blue-400 text-xs font-semibold uppercase tracking-wider rounded-full border border-blue-400/30">
-                        {event.category}
-                      </span>
-                        </div>
-
-                        {/* Content */}
-                        <h3 className="text-xl font-bold text-white mb-3 text-center group-hover:text-blue-400 transition-colors duration-300">
+                    <div className="flex items-start gap-6">
+                      {/* Avatar/Image */}
+                      <div className="w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-2xl shrink-0">
+                        {event.avatar}
+                      </div>
+                      {/* Text Content */}
+                      <div>
+                    <span
+                        className="inline-block px-3 py-1 bg-blue-400/20 text-white text-xs font-semibold uppercase tracking-wider rounded-full border border-blue-400/30 mb-4"
+                        style={{ fontFamily: "'Poppins', sans-serif" }}
+                    >
+                      {event.category}
+                    </span>
+                        <h3
+                            className="text-xl font-bold text-white mb-3"
+                            style={{ fontFamily: "'Poppins', sans-serif" }}
+                        >
                           {event.title}
                         </h3>
-                        <p className="text-gray-300 text-center text-sm leading-relaxed mb-4">
+                        <p
+                            className="text-gray-300 text-sm leading-relaxed mb-4 max-w-md"
+                            style={{ fontFamily: "'Poppins', sans-serif" }}
+                        >
                           {event.description}
                         </p>
-
-                        {/* Stats */}
-                        <div className="text-center">
-                      <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full text-white text-xs font-medium border border-white/10">
-                        <CheckCircle className="w-3 h-3 text-green-400" />
-                        {event.stats}
-                      </span>
-                        </div>
-                      </CardContent>
-                    </Card>
+                        <span
+                            className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full text-white text-xs font-medium border border-white/10"
+                            style={{ fontFamily: "'Poppins', sans-serif" }}
+                        >
+                      {event.stats}
+                    </span>
+                      </div>
+                    </div>
                   </div>
                 </div>
             ))}
@@ -203,9 +217,27 @@ export default function IntroTimeline() {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8 }}
           >
-            <div className="text-center mb-16">
-              <h3 className="text-4xl font-bold text-white mb-4">Tech Stack</h3>
-              <p className="text-gray-400">Technologies and tools I work with</p>
+            <div className="text-left mb-8 md:mb-12 lg:mb-16">
+              <div className="inline-block px-3 py-1 sm:px-4 sm:py-2 bg-white/10 rounded-full border border-white/20 mb-4 md:mb-6">
+              <span
+                  className="text-white text-xs sm:text-sm font-medium"
+                  style={{ fontFamily: "'Poppins', sans-serif" }}
+              >
+                TECH STACK
+              </span>
+              </div>
+              <h3
+                  className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 md:mb-6"
+                  style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 550, lineHeight: 1.2 }}
+              >
+                Technologies and Tools
+              </h3>
+              <p
+                  className="text-gray-400 text-sm md:text-base max-w-sm"
+                  style={{ fontFamily: "'Poppins', sans-serif" }}
+              >
+                The tools I use to build innovative solutions
+              </p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
@@ -220,13 +252,16 @@ export default function IntroTimeline() {
               ].map((skill, index) => (
                   <motion.div
                       key={index}
-                      className="p-6 bg-white/5 rounded-lg border border-white/10 backdrop-blur-sm text-white text-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 group"
+                      className="p-6 bg-white/5 rounded-lg border border-white/10 text-white text-center hover:bg-white/10 hover:border-white/20 transition-all duration-300"
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       whileHover={{ scale: 1.05 }}
                   >
-                    <div className="text-sm font-medium group-hover:text-blue-400 transition-colors duration-300">
+                    <div
+                        className="text-sm font-medium"
+                        style={{ fontFamily: "'Poppins', sans-serif" }}
+                    >
                       {skill}
                     </div>
                   </motion.div>
@@ -241,9 +276,27 @@ export default function IntroTimeline() {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8 }}
           >
-            <div className="text-center mb-16">
-              <h3 className="text-4xl font-bold text-white mb-4">Certifications</h3>
-              <p className="text-gray-400">Professional credentials and achievements</p>
+            <div className="text-left mb-8 md:mb-12 lg:mb-16">
+              <div className="inline-block px-3 py-1 sm:px-4 sm:py-2 bg-white/10 rounded-full border border-white/20 mb-4 md:mb-6">
+              <span
+                  className="text-white text-xs sm:text-sm font-medium"
+                  style={{ fontFamily: "'Poppins', sans-serif" }}
+              >
+                CERTIFICATIONS
+              </span>
+              </div>
+              <h3
+                  className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 md:mb-6"
+                  style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 550, lineHeight: 1.2 }}
+              >
+                Professional Credentials
+              </h3>
+              <p
+                  className="text-gray-400 text-sm md:text-base max-w-sm"
+                  style={{ fontFamily: "'Poppins', sans-serif" }}
+              >
+                Achievements that validate my expertise
+              </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
@@ -254,27 +307,29 @@ export default function IntroTimeline() {
               ].map((item, index) => (
                   <motion.div
                       key={index}
+                      className="flex items-start gap-4"
                       initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.6, delay: index * 0.1 }}
                       whileHover={{ scale: 1.02 }}
                   >
-                    <Card className="bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all duration-500 group">
-                      <CardContent className="p-6">
-                        <div className="flex items-center gap-4">
-                          <div className="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-xl shrink-0">
-                            {item.avatar}
-                          </div>
-                          <div className="flex-1">
-                            <h4 className="text-white font-semibold mb-1 group-hover:text-blue-400 transition-colors duration-300">
-                              {item.cert}
-                            </h4>
-                            <p className="text-gray-400 text-sm">{item.provider}</p>
-                          </div>
-                          <CheckCircle className="w-5 h-5 text-green-400 shrink-0" />
-                        </div>
-                      </CardContent>
-                    </Card>
+                    <div className="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-xl shrink-0">
+                      {item.avatar}
+                    </div>
+                    <div className="flex-1">
+                      <h4
+                          className="text-white font-semibold mb-1"
+                          style={{ fontFamily: "'Poppins', sans-serif" }}
+                      >
+                        {item.cert}
+                      </h4>
+                      <p
+                          className="text-gray-400 text-sm"
+                          style={{ fontFamily: "'Poppins', sans-serif" }}
+                      >
+                        {item.provider}
+                      </p>
+                    </div>
                   </motion.div>
               ))}
             </div>
