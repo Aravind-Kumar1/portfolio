@@ -11,21 +11,22 @@ interface Service {
 
 const services: Service[] = [
     {
-        title: "Web Development",
-        icon: Code,
-        image: "/hero.png",
-        description: "Custom web applications built with modern technologies",
-    },
-    {
         title: "Web Design",
         icon: Palette,
-        image: "/hero.png",
+        image: "/design.jpg",
         description: "Beautiful, user-centered designs that convert",
     },
     {
+        title: "Web Development",
+        icon: Code,
+        image: "/dev.jpg",
+        description: "Custom web applications built with modern technologies",
+    },
+
+    {
         title: "App Development",
         icon: Smartphone,
-        image: "/hero.png",
+        image: "/app.jpeg",
         description: "Native and cross-platform mobile applications",
     },
 ];

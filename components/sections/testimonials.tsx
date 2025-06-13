@@ -52,24 +52,22 @@ export default function Testimonials() {
   return (
       <section className="py-24 bg-black overflow-hidden">
         <div className="container mx-auto px-4">
-          <div className="text-left mb-16">
-            <div className="inline-block px-4 py-2 bg-white/10 rounded-full border border-white/20 mb-6">
+          <div className="text-left mb-8 md:mb-12 lg:mb-16">
+            <div className="inline-block px-3 py-1 sm:px-4 sm:py-2 bg-white/10 rounded-full border border-white/20 mb-4 md:mb-6">
             <span
-                className="text-white text-sm font-medium"
-                style={{ fontFamily: "'Poppins', sans-serif" }}
+                className="text-white text-xs sm:text-sm font-medium"
+                style={{ fontFamily: "'Inter', 'SF Pro Display', sans-serif" }}
             >
               Client Stories
             </span>
             </div>
             <h2
-                className="text-4xl lg:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300"
-                style={{
-                  fontFamily: "'Poppins', sans-serif",
-                  fontWeight: 900,
-                  lineHeight: 1.2,
-                }}
+                className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300 whitespace-normal md:whitespace-nowrap"
+                style={{ fontFamily: "'Poppins', 'Inter', sans-serif", fontWeight: 550, lineHeight: 1.2 }}
             >
-              Real Feedback from<br />Transformative Collaborations
+              Real Feedback from
+              <br />
+              Transformative Collaborations
             </h2>
           </div>
 

@@ -1,30 +1,29 @@
-
-// Define Contributor and Project interfaces
-export interface Contributor {
+interface Contributor {
     name: string;
     avatar: string;
+    role?: string;
 }
 
-export interface Project {
+interface Project {
     id: number;
     slug: string;
     title: string;
     subtitle?: string;
     description: string;
     image: string;
-    fullDescription: string;
+    fullDescription?: string;
     technologies: string[];
     duration: string;
     projectType: string;
     liveUrl?: string;
     githubUrl?: string;
-    contributors?: Contributor[];
-    features?: string[];
-    date?: string;
-    category?: string;
-    team?: string;
-    status?: string;
-    role?: string;
+    contributors: Contributor[];
+    features: string[];
+    date: string;
+    category: string;
+    team: string;
+    status: string;
+    role: string;
 }
 
 export const projects: Project[] = [
@@ -42,7 +41,16 @@ export const projects: Project[] = [
         liveUrl: "https://viralbug.example.com",
         githubUrl: "https://github.com/username/viral-bug",
         contributors: [
-            { name: "Chris Taylor", avatar: "https://images.unsplash.com/photo-1502685104226-ee32379f453f?w=100&h=100&fit=crop" }
+            {
+                name: "Chris Taylor",
+                avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+                role: "Lead Developer"
+            },
+            {
+                name: "Sarah Chen",
+                avatar: "https://images.unsplash.com/photo-1494790108755-2616b96e0e60?w=100&h=100&fit=crop&crop=face",
+                role: "UI/UX Designer"
+            }
         ],
         features: [
             "User authentication",
@@ -70,7 +78,16 @@ export const projects: Project[] = [
         liveUrl: "https://grassroot.example.com",
         githubUrl: "https://github.com/username/grass-root",
         contributors: [
-            { name: "Laura Adams", avatar: "/hero.png" }
+            {
+                name: "Laura Adams",
+                avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+                role: "Full Stack Developer"
+            },
+            {
+                name: "Marcus Johnson",
+                avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+                role: "Backend Engineer"
+            }
         ],
         features: [
             "Loan application tracking",
@@ -86,6 +103,47 @@ export const projects: Project[] = [
     },
     {
         id: 3,
+        slug: "aditude-creative-solutions",
+        title: "Aditude Creative Solutions",
+        description: "Helped IT companies hire faster, smarter, and with confidence through a comprehensive website with sections for services, talent discovery, and contact information.",
+        image: "/hero.png",
+        fullDescription: "Developed a dynamic website for Aditude Creative Solutions to facilitate faster and smarter hiring processes for IT companies. Designed intuitive sections for home, about, services, contact, and talent discovery, ensuring seamless navigation and user engagement. Features include job listing integration, candidate profiles, client testimonials, and a responsive design for optimal viewing on all devices.",
+        technologies: ["React.js", "Tailwind CSS"],
+        duration: "Jan 2025 – Mar 2025",
+        projectType: "Client Project",
+        liveUrl: "https://aditude.example.com",
+        githubUrl: "https://github.com/username/aditude-creative-solutions",
+        contributors: [
+            {
+                name: "Emily White",
+                avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=face",
+                role: "Frontend Developer"
+            },
+            {
+                name: "Jack Smith",
+                avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
+                role: "Project Manager"
+            },
+            {
+                name: "Diana Rodriguez",
+                avatar: "https://images.unsplash.com/photo-1502685104226-ee32379f453f?w=100&h=100&fit=crop&crop=face",
+                role: "UI Designer"
+            }
+        ],
+        features: [
+            "Job listing integration",
+            "Candidate profiles",
+            "Client testimonials",
+            "Responsive design"
+        ],
+        date: "Mar 2025",
+        category: "Web Application",
+        team: "Aditude Team",
+        status: "Completed",
+        role: "Frontend Developer"
+    },
+    {
+        id: 4,
         slug: "elim",
         title: "ELIM",
         subtitle: "Emmanuel Living Impact Mission",
@@ -98,8 +156,21 @@ export const projects: Project[] = [
         liveUrl: "https://elim.example.com",
         githubUrl: "https://github.com/username/elim",
         contributors: [
-            { name: "John Doe", avatar: "/hero.png" },
-            { name: "Jane Smith", avatar: "/hero.png" }
+            {
+                name: "John Doe",
+                avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&crop=face",
+                role: "Lead Developer"
+            },
+            {
+                name: "Jane Smith",
+                avatar: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?w=100&h=100&fit=crop&crop=face",
+                role: "Community Manager"
+            },
+            {
+                name: "Pastor Michael",
+                avatar: "https://images.unsplash.com/photo-1556474835-b0f3ac40d4d1?w=100&h=100&fit=crop&crop=face",
+                role: "Content Advisor"
+            }
         ],
         features: [
             "Real-time sermon streaming",
@@ -114,7 +185,7 @@ export const projects: Project[] = [
         role: "Frontend Developer"
     },
     {
-        id: 4,
+        id: 5,
         slug: "team-events",
         title: "The Team Events",
         description: "An enterprise-grade event management ecosystem with secure authentication and real-time booking capabilities for seamless event experiences.",
@@ -126,8 +197,21 @@ export const projects: Project[] = [
         liveUrl: "https://teamevents.example.com",
         githubUrl: "https://github.com/username/team-events",
         contributors: [
-            { name: "Alice Brown", avatar: "/hero.png" },
-            { name: "Bob Wilson", avatar: "/hero.png" }
+            {
+                name: "Alice Brown",
+                avatar: "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=100&h=100&fit=crop&crop=face",
+                role: "Full Stack Developer"
+            },
+            {
+                name: "Bob Wilson",
+                avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&crop=face",
+                role: "Event Coordinator"
+            },
+            {
+                name: "Anna Martinez",
+                avatar: "https://images.unsplash.com/photo-1539571696847-e8b18ba22de9?w=100&h=100&fit=crop&crop=face",
+                role: "UX Designer"
+            }
         ],
         features: [
             "Real-time event updates",
@@ -143,7 +227,7 @@ export const projects: Project[] = [
         role: "Full Stack Developer"
     },
     {
-        id: 5,
+        id: 6,
         slug: "smart-read",
         title: "Smart Read",
         description: "A comprehensive reading ecosystem with audiobook integration and AI-powered recommendations creating an immersive reading experience.",
@@ -155,7 +239,11 @@ export const projects: Project[] = [
         liveUrl: "https://smartread.example.com",
         githubUrl: "https://github.com/username/smart-read",
         contributors: [
-            { name: "Emma Davis", avatar: "/hero.png" }
+            {
+                name: "Emma Davis",
+                avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop&crop=face",
+                role: "Solo Developer"
+            }
         ],
         features: [
             "Cloud synchronization",
@@ -171,7 +259,7 @@ export const projects: Project[] = [
         role: "Lead Developer"
     },
     {
-        id: 6,
+        id: 7,
         slug: "campusbuzz",
         title: "CampusBuzz",
         description: "A cross-platform mobile app connecting students with campus events through intelligent recommendations and seamless event discovery.",
@@ -183,9 +271,26 @@ export const projects: Project[] = [
         liveUrl: "https://campusbuzz.example.com",
         githubUrl: "https://github.com/username/campusbuzz",
         contributors: [
-            { name: "Michael Lee", avatar: "/hero.png" },
-            { name: "Sarah Johnson", avatar: "/hero.png" },
-            { name: "David Kim", avatar: "/hero.png"}
+            {
+                name: "Michael Lee",
+                avatar: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=100&h=100&fit=crop&crop=face",
+                role: "Mobile Developer"
+            },
+            {
+                name: "Sarah Johnson",
+                avatar: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=100&h=100&fit=crop&crop=face",
+                role: "Backend Developer"
+            },
+            {
+                name: "David Kim",
+                avatar: "https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=100&h=100&fit=crop&crop=face",
+                role: "Product Designer"
+            },
+            {
+                name: "Lisa Wang",
+                avatar: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=100&h=100&fit=crop&crop=face",
+                role: "QA Engineer"
+            }
         ],
         features: [
             "Geolocation-based event discovery",
@@ -200,33 +305,4 @@ export const projects: Project[] = [
         status: "Completed",
         role: "Mobile Developer"
     },
-
-//     {
-//         id: 7,
-//         slug: "live-hospitals",
-//         title: "Live Hospitals",
-//         subtitle: "Healthcare Solution",
-//         description: "Built a hospital management website with patient registration, appointment scheduling, and admin dashboard features.",
-//         image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&h=400&fit=crop",
-//         fullDescription: "Developed a comprehensive hospital management system using React.js and Node.js, with MongoDB for efficient data storage. Implemented features for patient registration, appointment scheduling, and a robust admin dashboard for hospital staff. Features include patient profile management, appointment booking system, admin dashboard with analytics, secure data handling, and multi-device compatibility.",
-//         technologies: ["React.js", "Node.js", "MongoDB"],
-//         duration: "Jan 2024 – Mar 2024",
-//         projectType: "Client Project",
-//         liveUrl: "https://livehospitals.example.com",
-//         githubUrl: "https://github.com/username/live-hospitals",
-//         contributors: [
-//             { name: "Mark Wilson", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" }
-//         ],
-//         features: [
-//             "Patient profile management",
-//             "Appointment booking system",
-//             "Admin dashboard with analytics",
-//             "Secure data handling"
-//         ],
-//         date: "Mar 2024",
-//         category: "Healthcare Platform",
-//         team: "HealthTech Crew",
-//         status: "Completed",
-//         role: "Full Stack Developer"
-//     }
- ]
+]
