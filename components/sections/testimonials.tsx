@@ -50,27 +50,29 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-      <section className="py-12 bg-black overflow-hidden">
+      <section className="py-24 bg-black overflow-hidden">
         <div className="container mx-auto px-4">
-          <div className="text-left mb-6">
-            <div className="inline-block px-2 py-1 bg-white/10 rounded-full border border-white/20 mb-2">
+          <div className="text-left mb-8 md:mb-12 lg:mb-16">
+            <div className="inline-block px-3 py-1 sm:px-4 sm:py-2 bg-white/10 rounded-full border border-white/20 mb-4 md:mb-6">
             <span
-                className="text-white text-xs font-medium"
+                className="text-white text-xs sm:text-sm font-medium"
                 style={{ fontFamily: "'Inter', 'SF Pro Display', sans-serif" }}
             >
               Client Stories
             </span>
             </div>
             <h2
-                className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300 leading-tight"
-                style={{ fontFamily: "'Poppins', 'Inter', sans-serif", fontWeight: 550 }}
+                className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300 whitespace-normal md:whitespace-nowrap"
+                style={{ fontFamily: "'Poppins', 'Inter', sans-serif", fontWeight: 550, lineHeight: 1.2 }}
             >
-              Real Feedback from Transformative Collaborations
+              Real Feedback from
+              <br />
+              Transformative Collaborations
             </h2>
           </div>
 
           <motion.div
-              className="flex gap-4"
+              className="flex gap-6"
               animate={{ x: ["0%", "-50%"] }}
               transition={{
                 x: {
@@ -85,25 +87,25 @@ export default function Testimonials() {
             {[...testimonials, ...testimonials].map((testimonial, index) => (
                 <motion.div
                     key={`testimonial-${index}`}
-                    className="min-w-[280px] max-w-[320px] flex-shrink-0"
-                    whileHover={{ scale: 1.02 }}
+                    className="min-w-[320px] max-w-[360px] flex-shrink-0"
+                    whileHover={{ scale: 1.03, zIndex: 10 }}
                     transition={{ type: "spring", stiffness: 200, damping: 20 }}
                 >
                   <Card
-                      className="bg-black/80 border-white/10 hover:border-white/30 transition-all duration-300 shadow-lg"
+                      className="bg-black/80 border-white/10 hover:border-white/30 transition-all duration-300 shadow-2xl"
                       style={{ fontFamily: "'Poppins', sans-serif" }}
                   >
-                    <CardContent className="p-4">
-                      <div className="flex mb-2">
+                    <CardContent className="p-6">
+                      <div className="flex mb-4">
                         {[...Array(testimonial.rating)].map((_, i) => (
                             <Star
                                 key={i}
-                                className="h-4 w-4 text-yellow-400 fill-current transition-transform duration-300 hover:scale-125"
+                                className="h-5 w-5 text-yellow-400 fill-current transition-transform duration-300 hover:scale-125"
                             />
                         ))}
                       </div>
                       <p
-                          className="text-gray-200 mb-4 leading-relaxed italic text-sm"
+                          className="text-gray-200 mb-6 leading-relaxed italic text-base"
                           style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 400 }}
                       >
                         "{testimonial.content}"
@@ -112,19 +114,19 @@ export default function Testimonials() {
                         <Image
                             src={testimonial.image || "/placeholder.svg"}
                             alt={testimonial.name}
-                            width={40}
-                            height={40}
-                            className="w-10 h-10 rounded-full mr-3 border-2 border-white/20"
+                            width={60}
+                            height={60}
+                            className="w-12 h-12 rounded-full mr-4 border-2 border-white/20"
                         />
                         <div>
                           <h4
-                              className="text-white font-semibold text-sm"
+                              className="text-white font-semibold"
                               style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 600 }}
                           >
                             {testimonial.name}
                           </h4>
                           <p
-                              className="text-gray-400 text-xs"
+                              className="text-gray-400 text-sm"
                               style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 400 }}
                           >
                             {testimonial.role}

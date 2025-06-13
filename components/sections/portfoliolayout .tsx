@@ -93,7 +93,7 @@ const PremiumPortfolio: React.FC = () => {
                 "Maintained 99% uptime with lightweight deployment"
             ],
             isLive: true,
-            image: "/hero.png",
+            image: "/viral_mock.png",
             screenshots: ["/hero.png", "/viral_mock.png", "/hero.png"],
             type: "Self"
         },
@@ -108,7 +108,7 @@ const PremiumPortfolio: React.FC = () => {
                 "Built user dashboards with seamless flows"
             ],
             isLive: true,
-            image: "/hero.png",
+            image: "/viral_mock.png",
             screenshots: ["/hero.png", "/viral_mock.png", "/hero.png"],
             type: "Academic"
         },
@@ -122,7 +122,7 @@ const PremiumPortfolio: React.FC = () => {
                 "Multi-vendor support"
             ],
             isLive: true,
-            image: "/hero.png",
+            image: "/viral_mock.png",
             screenshots: ["/hero.png", "/viral_mock.png", "/hero.png"],
             type: "Self"
         },
@@ -136,7 +136,7 @@ const PremiumPortfolio: React.FC = () => {
                 "Advanced user engagement features"
             ],
             isLive: true,
-            image: "/hero.png",
+            image: "/viral_mock.png",
             screenshots: ["/hero.png", "/viral_mock.png", "/hero.png"],
             type: "Internship"
         },
@@ -150,7 +150,7 @@ const PremiumPortfolio: React.FC = () => {
                 "Social fitness challenges"
             ],
             isLive: true,
-            image: "/hero.png",
+            image: "/viral_mock.png",
             screenshots: ["/hero.png", "/viral_mock.png", "/hero.png"],
             type: "Academic"
         },
@@ -192,28 +192,27 @@ const PremiumPortfolio: React.FC = () => {
     return (
         <div className="min-h-screen bg-black text-white">
             {/* Header Section */}
-            <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-8 lg:py-12">
-                <div className="text-left mb-6 sm:mb-8 lg:mb-12">
-                    <div className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-white/10 rounded-full border border-white/20 mb-3 sm:mb-4 lg:mb-6">
+            <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20">
+                <div className="text-left mb-8 md:mb-12 lg:mb-16">
+                    <div className="inline-block px-3 py-1 sm:px-4 sm:py-2 bg-white/10 rounded-full border border-white/20 mb-4 md:mb-6">
                         <span className="text-white text-xs sm:text-sm font-medium" style={{fontFamily: "'Inter', 'SF Pro Display', sans-serif"}}>
                             My Projects
                         </span>
                     </div>
-                    <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 sm:mb-4 lg:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300" style={{fontFamily: "'Poppins', 'Inter', sans-serif", fontWeight: 550, lineHeight: 1.1}}>
+                    <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300 whitespace-normal md:whitespace-nowrap" style={{fontFamily: "'Poppins', 'Inter', sans-serif", fontWeight: 550, lineHeight: 1.2}}>
                         Crafting Innovative Solutions
-                        <br className="hidden sm:block" />
-                        <span className="sm:hidden"> </span>
+                        <br/>
                         to Elevate Your Digital Presence
                     </h2>
                 </div>
 
-                {/* Cards Grid - 1 per row on mobile, 2 per row on larger screens */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
+                {/* Side-by-Side Cards Grid - 2 per row */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
                     {projects.map((project) => (
                         <div key={project.id} className="group relative">
-                            {/* Card Container */}
+                            {/* Card Container - No hover scaling or transformations */}
                             <div
-                                className="relative w-full h-[250px] sm:h-[280px] lg:h-[400px] overflow-hidden border border-gray-800/50 hover:border-white/30 transition-colors duration-300 cursor-pointer"
+                                className="relative w-full h-[450px] sm:h-[500px] overflow-hidden border border-gray-800/50 hover:border-white/30 transition-colors duration-300 cursor-pointer"
                                 onMouseEnter={() => handleMouseEnter(project.id)}
                                 onMouseLeave={() => setHoveredProject(null)}
                             >
@@ -223,16 +222,16 @@ const PremiumPortfolio: React.FC = () => {
                                     className="w-full h-full object-cover object-center"
                                 />
 
-                                {/* Buttons - Always visible on mobile, slide up on desktop */}
-                                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 via-black/80 to-transparent p-3 sm:p-4 lg:p-6 lg:transform lg:translate-y-full lg:group-hover:translate-y-0 lg:transition-transform lg:duration-500 lg:ease-out z-20">
-                                    <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 lg:gap-4 items-center justify-center">
+                                {/* Buttons sliding up from bottom */}
+                                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-20">
+                                    <div className="flex flex-row gap-4 sm:gap-6 lg:gap-8 items-start justify-center">
                                         <button
                                             onClick={() => openQuickView(project)}
-                                            className="bg-gradient-to-br from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white px-4 sm:px-5 lg:px-6 py-2 sm:py-2 lg:py-2.5 rounded-md sm:rounded-lg lg:rounded-xl font-medium text-xs sm:text-sm lg:text-sm transition-colors duration-200 min-w-[100px] sm:min-w-[110px] lg:min-w-[120px]"
+                                            className="bg-gradient-to-br from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white px-3 sm:px-4 lg:px-6 py-1.5 sm:py-2 lg:py-3 rounded-lg sm:rounded-xl font-medium text-[10px] sm:text-xs lg:text-lg transition-colors duration-200 min-w-[120px] sm:min-w-[140px] lg:min-w-[180px]"
                                         >
                                             Quick View
                                         </button>
-                                        <button className="border border-white/80 hover:border-white text-white hover:bg-white/10 px-4 sm:px-5 lg:px-6 py-2 sm:py-2 lg:py-2.5 rounded-md sm:rounded-lg lg:rounded-xl font-medium text-xs sm:text-sm lg:text-sm transition-colors duration-200 min-w-[100px] sm:min-w-[110px] lg:min-w-[120px]">
+                                        <button className="border-2 border-white/80 hover:border-white text-white hover:bg-white/10 px-3 sm:px-4 lg:px-6 py-1.5 sm:py-2 lg:py-3 rounded-lg sm:rounded-xl font-medium text-[10px] sm:text-xs lg:text-lg transition-colors duration-200 min-w-[120px] sm:min-w-[140px] lg:min-w-[180px]">
                                             View Detail
                                         </button>
                                     </div>
@@ -240,8 +239,8 @@ const PremiumPortfolio: React.FC = () => {
                             </div>
 
                             {/* Project Name and Arrow */}
-                            <div className="flex items-center justify-between mt-2 sm:mt-4 lg:mt-6">
-                                <h3 className="text-sm sm:text-lg lg:text-xl xl:text-2xl font-bold text-white flex-1 pr-2" style={{fontFamily: "'Poppins', sans-serif"}}>
+                            <div className="flex items-center justify-between mt-6">
+                                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white flex-1" style={{fontFamily: "'Poppins', sans-serif"}}>
                                     <DecryptText
                                         text={project.title}
                                         isVisible={hoveredProject === project.id}
@@ -252,8 +251,8 @@ const PremiumPortfolio: React.FC = () => {
                                         }))}
                                     />
                                 </h3>
-                                <button className="hover:text-white transition-colors duration-200 group/arrow">
-                                    <ArrowRight className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8 text-gray-400 group-hover/arrow:text-white transition-transform duration-200 group-hover/arrow:-rotate-90"/>
+                                <button className="ml-4 hover:text-white transition-colors duration-200 group/arrow">
+                                    <ArrowRight className="w-8 h-8 text-gray-400 group-hover/arrow:text-white transition-transform duration-200 group-hover/arrow:-rotate-90"/>
                                 </button>
                             </div>
                         </div>
@@ -261,48 +260,48 @@ const PremiumPortfolio: React.FC = () => {
                 </div>
 
                 {/* View All Projects Button */}
-                <div className="text-center mt-8 sm:mt-12 lg:mt-16">
-                    <button className="border-2 border-gray-700 hover:border-gray-600 text-gray-200 hover:bg-gray-800/30 px-6 py-3 sm:px-8 sm:py-4 lg:px-12 lg:py-5 rounded-full font-semibold flex items-center gap-2 lg:gap-3 transition-colors duration-200 bg-gray-900/50 mx-auto text-sm sm:text-base lg:text-lg" style={{fontFamily: "'Poppins', sans-serif"}}>
-                        <span>View All Projects</span>
-                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5"/>
+                <div className="text-center mt-16 sm:mt-20">
+                    <button className="border-2 border-gray-700 hover:border-gray-600 text-gray-200 hover:bg-gray-800/30 px-8 py-4 sm:px-12 sm:py-5 rounded-full font-semibold flex items-center gap-3 transition-colors duration-200 bg-gray-900/50 mx-auto" style={{fontFamily: "'Poppins', sans-serif"}}>
+                        <span className="text-base sm:text-lg">View All Projects</span>
+                        <ArrowRight className="w-5 h-5"/>
                     </button>
                 </div>
             </div>
 
-            {/* Quick View Modal */}
+            {/* Quick View Modal - Full Width */}
             {selectedProject && (
-                <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-2 sm:p-4">
-                    <div className="bg-gray-900 rounded-xl sm:rounded-2xl w-full max-w-[95vw] sm:max-w-[90vw] max-h-[95vh] sm:max-h-[90vh] overflow-hidden border border-gray-700 shadow-2xl">
+                <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+                    <div className="bg-gray-900 rounded-2xl w-full max-w-[90vw] max-h-[90vh] overflow-hidden border border-gray-700 shadow-2xl">
                         {/* Modal Header */}
-                        <div className="flex items-center justify-between p-3 sm:p-4 lg:p-6 border-b border-gray-700">
-                            <div className="flex items-center gap-3 sm:gap-4 lg:gap-6">
-                                <span className="text-gray-400 text-xs sm:text-sm lg:text-lg" style={{fontFamily: "'Poppins', sans-serif", fontWeight: 400}}>
+                        <div className="flex items-center justify-between p-6 border-b border-gray-700">
+                            <div className="flex items-center gap-6">
+                                <span className="text-gray-400 text-lg" style={{fontFamily: "'Poppins', sans-serif", fontWeight: 400}}>
                                     {selectedProject.type} Project
                                 </span>
-                                <h3 className="text-lg sm:text-xl lg:text-3xl font-medium text-white" style={{fontFamily: "'Poppins', sans-serif", fontWeight: 400}}>
+                                <h3 className="text-3xl font-medium text-white" style={{fontFamily: "'Poppins', sans-serif", fontWeight: 400}}>
                                     {selectedProject.title}
                                 </h3>
                             </div>
                             <button
                                 onClick={closeQuickView}
-                                className="text-gray-400 hover:text-white transition-colors duration-200 p-1 sm:p-2 hover:bg-gray-800 rounded-full"
+                                className="text-gray-400 hover:text-white transition-colors duration-200 p-2 hover:bg-gray-800 rounded-full"
                             >
-                                <X className="w-5 h-5 sm:w-6 sm:h-6" />
+                                <X className="w-6 h-6" />
                             </button>
                         </div>
 
                         {/* Modal Content */}
-                        <div className="p-4 sm:p-6 lg:p-8">
+                        <div className="p-8">
                             {/* Image Gallery with Cards */}
-                            <div className="relative mb-6 sm:mb-8 lg:mb-8">
-                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-6">
+                            <div className="relative mb-8">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                                     {selectedProject.screenshots.map((screenshot, index) => (
                                         <div
                                             key={index}
-                                            className={`relative rounded-lg sm:rounded-xl overflow-hidden bg-gray-800 border border-gray-600 transition-all duration-200 cursor-pointer ${
+                                            className={`relative rounded-xl overflow-hidden bg-gray-800 border border-gray-600 transition-all duration-200 ${
                                                 index === currentImageIndex ? 'ring-2 ring-blue-500' : ''
                                             }`}
-                                            style={{ width: '100%', height: '200px', maxHeight: '250px' }}
+                                            style={{ width: '100%', maxWidth: '400px', height: '320px' }}
                                             onClick={() => setCurrentImageIndex(index)}
                                         >
                                             <img
@@ -320,27 +319,27 @@ const PremiumPortfolio: React.FC = () => {
                                         {currentImageIndex > 0 && (
                                             <button
                                                 onClick={prevImage}
-                                                className="absolute left-4 sm:left-6 lg:left-6 top-1/2 transform -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white p-2 sm:p-3 rounded-full transition-colors duration-200 border border-gray-600"
+                                                className="absolute left-6 top-1/2 transform -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white p-3 rounded-full transition-colors duration-200 border border-gray-600"
                                             >
-                                                <ArrowLeft className="w-5 h-5 sm:w-6 sm:h-6 lg:w-6 lg:h-6" />
+                                                <ArrowLeft className="w-6 h-6" />
                                             </button>
                                         )}
                                         <button
                                             onClick={nextImage}
-                                            className="absolute right-4 sm:right-6 lg:right-6 top-1/2 transform -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white p-2 sm:p-3 rounded-full transition-colors duration-200 border border-gray-600"
+                                            className="absolute right-6 top-1/2 transform -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white p-3 rounded-full transition-colors duration-200 border border-gray-600"
                                         >
-                                            <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 lg:w-6 lg:h-6" />
+                                            <ArrowRight className="w-6 h-6" />
                                         </button>
                                     </>
                                 )}
                             </div>
 
                             {/* Action Buttons */}
-                            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-end">
-                                <button className="bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white py-2.5 sm:py-3 px-5 sm:px-6 rounded-lg sm:rounded-xl font-semibold transition-colors duration-200 flex items-center justify-center gap-2 text-sm sm:text-base min-w-[120px] sm:min-w-[140px]">
+                            <div className="flex gap-4 justify-end">
+                                <button className="bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white py-3 px-6 rounded-xl font-semibold transition-colors duration-200 flex items-center gap-2 text-base">
                                     Get In Touch
                                 </button>
-                                <button className="border-2 border-gray-600 hover:border-gray-500 text-gray-300 hover:bg-gray-800/50 py-2.5 sm:py-3 px-5 sm:px-6 rounded-lg sm:rounded-xl font-semibold transition-colors duration-200 text-sm sm:text-base min-w-[120px] sm:min-w-[140px]">
+                                <button className="border-2 border-gray-600 hover:border-gray-500 text-gray-300 hover:bg-gray-800/50 py-3 px-6 rounded-xl font-semibold transition-colors duration-200 text-base">
                                     Read Full Story
                                 </button>
                             </div>
