@@ -8,6 +8,7 @@ import MyServices from "@/components/sections/myservices";
 import CTASection from "@/components/sections/ctasection";
 import PortfolioLayout from "@/components/sections/portfoliolayout ";
 import PremiumPortfolio from "@/components/sections/portfoliolayout ";
+import CreativeAboutSection from "@/components/sections/featured-projects";
 
 
 export default function HomePage() {
@@ -15,7 +16,7 @@ export default function HomePage() {
       <main className="overflow-hidden">
           <Hero/>
           <Services/>
-          <FeaturedProjects/>
+          <CreativeAboutSection/>
 
           <MyServices/>
 

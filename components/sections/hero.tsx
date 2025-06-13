@@ -7,7 +7,7 @@ export default function HeroSection() {
     const [hoveredButton, setHoveredButton] = useState<string | null>(null);
 
     return (
-        <div className="mt-20 sm:mt-24 md:mt-12 bg-black text-white min-h-fit md:min-h-[100vh] relative overflow-hidden" style={{ fontFamily: 'Poppins, system-ui, -apple-system, sans-serif' }}>
+        <div className="mt-24 sm:mt-24 md:mt-16 bg-black text-white min-h-fit md:min-h-[100vh] relative overflow-hidden" style={{ fontFamily: 'Poppins, system-ui, -apple-system, sans-serif' }}>
             {/* Hero Section */}
             <div className="min-h-fit md:min-h-[100vh] flex items-center justify-center relative z-10 py-8 sm:py-10 md:pt-10">
                 <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 w-full">
@@ -23,7 +23,7 @@ export default function HeroSection() {
                     {/* Main Content Area */}
                     <div className="space-y-6 sm:space-y-8 md:space-y-12">
                         {/* Hero Text */}
-                        <div className="text-center space-y-3 sm:space-y-4 md:space-y-6 mt-3 sm:mt-4 md:mt-6">
+                        <div className="text-center space-y-3 sm:space-y-4 md:space-y-6 mt-6 sm:mt-6 md:mt-8">
                             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-semibold text-white leading-tight mb-4 sm:mb-5 md:mb-7">
                                 Transforming Ideas
                                 <br/>
@@ -31,16 +31,26 @@ export default function HeroSection() {
                                     into Digital Masterpieces
                                 </span>
                             </h1>
-                            <p className="text-white leading-relaxed font-light max-w-sm sm:max-w-xl md:max-w-3xl lg:max-w-4xl mx-auto px-2 sm:px-4 md:px-0 text-sm sm:text-base md:text-lg lg:text-xl"
+                            <p className="text-white leading-relaxed font-light max-w-[90%] sm:max-w-xl md:max-w-3xl lg:max-w-4xl mx-auto px-2 sm:px-4 md:px-0 text-sm sm:text-base md:text-lg lg:whitespace-normal"
                                style={{fontSize: 'clamp(0.875rem, 2vw, 1.395rem)'}}>
-                                Delivering modern, high-quality web solutions that drive user engagement.
+                                {(() => {
+                                    const isLgOrAbove = typeof window !== 'undefined' && window.innerWidth >= 1024;
+                                    return isLgOrAbove ? (
+                                        "Delivering modern, high-quality web solutions that drive user engagement."
+                                    ) : (
+                                        <>
+                                            Delivering modern, high-quality{"\n"}
+                                            web solutions that drive user engagement.
+                                        </>
+                                    );
+                                })()}
                             </p>
                         </div>
 
                         {/* CTA Buttons - Side by Side for All Screens */}
                         <div className="flex flex-row gap-2 sm:gap-3 md:gap-4 justify-center mt-6 sm:mt-8 md:mt-12 px-2 sm:px-0">
                             <button
-                                className="group relative px-3 py-2 sm:px-4 sm:py-2.5 md:px-8 md:py-4 bg-blue-600 text-white font-semibold text-xs sm:text-sm md:text-base tracking-wide rounded-xl hover:bg-blue-700 transition-all duration-300 flex items-center justify-center shadow-2xl flex-1 sm:flex-1 md:min-w-[180px] md:flex-none transform hover:scale-105"
+                                className="group relative px-1.5 py-1 sm:px-4 sm:py-2.5 md:px-8 md:py-4 bg-blue-600 text-white font-semibold text-xs sm:text-sm md:text-base tracking-wide rounded-xl hover:bg-blue-700 transition-all duration-300 flex items-center justify-center shadow-2xl min-w-[140px] sm:min-w-[160px] md:min-w-[180px] transform hover:scale-105"
                                 onMouseEnter={() => setHoveredButton('primary')}
                                 onMouseLeave={() => setHoveredButton(null)}
                             >
@@ -50,7 +60,7 @@ export default function HeroSection() {
                                 </span>
                             </button>
                             <button
-                                className="px-3 py-2 sm:px-4 sm:py-2.5 md:px-8 md:py-4 border-2 border-white text-white font-semibold text-xs sm:text-sm md:text-base tracking-wide rounded-xl hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center flex-1 sm:flex-1 md:min-w-[180px] md:flex-none transform hover:scale-105"
+                                className="px-1.5 py-1 sm:px-4 sm:py-2.5 md:px-8 md:py-4 border-2 border-white text-white font-semibold text-xs sm:text-sm md:text-base tracking-wide rounded-xl hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center min-w-[140px] sm:min-w-[160px] md:min-w-[180px] transform hover:scale-105"
                                 onMouseEnter={() => setHoveredButton('secondary')}
                                 onMouseLeave={() => setHoveredButton(null)}
                             >
