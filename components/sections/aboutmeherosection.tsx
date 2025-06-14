@@ -3,11 +3,11 @@ import Image from 'next/image';
 
 const AboutMeHeroSection: React.FC = () => {
     return (
-        <section className="bg-black text-white min-h-screen flex items-center justify-center">
-            <div className="max-w-6xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6 md:py-8 lg:py-20">
+        <section className="bg-black text-white min-h-fit sm:min-h-screen flex items-center justify-center">
+            <div className="max-w-6xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-8 sm:py-6 md:py-8 lg:py-20">
                 <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 lg:gap-16 items-center">
                     {/* Left Side - Image and Badge */}
-                    <div className="flex flex-col items-center lg:items-start space-y-3 sm:space-y-4 md:space-y-6 order-1 lg:order-1 -mt-2 sm:-mt-4 md:-mt-8 lg:-mt-20">
+                    <div className="flex flex-col items-center lg:items-start space-y-2 sm:space-y-4 md:space-y-6 order-1 lg:order-1 sm:-mt-4 md:-mt-8 lg:-mt-20">
                         <div className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-3 bg-white/10 rounded-xl border border-white/20 backdrop-blur-sm">
                             <span className="text-white text-xs sm:text-sm md:text-base font-semibold font-['Poppins'] tracking-wide text-center">
                                 The Face Behind the Code
@@ -29,29 +29,29 @@ const AboutMeHeroSection: React.FC = () => {
                     </div>
 
                     {/* Right Side - Content */}
-                    <div className="flex flex-col justify-center space-y-3 sm:space-y-4 md:space-y-6 order-2 lg:order-2 text-center lg:text-left">
-                        <div className="space-y-2 sm:space-y-3 md:space-y-4">
-                            <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-['Poppins'] text-white leading-relaxed">
+                    <div className="flex flex-col justify-center space-y-2 sm:space-y-4 md:space-y-6 order-2 lg:order-2 text-center lg:text-left">
+                        <div className="space-y-1 sm:space-y-3 md:space-y-4">
+                            <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-['Poppins'] text-white leading-relaxed px-4 sm:px-0">
                                 Hey there! 👋
                             </p>
 
-                            <p className="text-sm sm:text-base md:text-lg font-['Poppins'] text-gray-300 leading-relaxed max-w-full lg:max-w-lg mx-auto lg:mx-0">
+                            <p className="text-sm sm:text-base md:text-lg font-['Poppins'] text-gray-300 leading-relaxed max-w-full lg:max-w-lg mx-auto lg:mx-0 px-4 sm:px-0">
                                 CS Engineering student passionate about building scalable web applications. I've shipped 4 production-grade apps and won hackathons, specializing in React, TypeScript, and modern frontend technologies.
                             </p>
 
-                            <p className="text-xs sm:text-sm md:text-base font-['Poppins'] text-gray-400 leading-relaxed max-w-full lg:max-w-lg mx-auto lg:mx-0">
+                            <p className="hidden sm:block text-xs sm:text-sm md:text-base font-['Poppins'] text-gray-400 leading-relaxed max-w-full lg:max-w-lg mx-auto lg:mx-0 px-4 sm:px-0">
                                 When I'm not coding, you'll find me solving problems, exploring new tech, or thinking about the next big idea. I believe great software comes from understanding people, not just technology.
                             </p>
                         </div>
 
-                        <div className="flex flex-wrap gap-2 sm:gap-3 justify-center lg:justify-start">
-                            <div className="px-3 py-1.5 sm:px-4 sm:py-2 bg-white/5 rounded-lg border border-white/10">
+                        <div className="flex flex-wrap gap-2 sm:gap-3 justify-center lg:justify-start px-2 sm:px-0">
+                            <div className="px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 bg-white/5 rounded-lg border border-white/10 flex-shrink-0">
                                 <span className="text-xs sm:text-sm font-medium text-gray-300 font-['Poppins']">React & TypeScript</span>
                             </div>
-                            <div className="px-3 py-1.5 sm:px-4 sm:py-2 bg-white/5 rounded-lg border border-white/10">
+                            <div className="px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 bg-white/5 rounded-lg border border-white/10 flex-shrink-0">
                                 <span className="text-xs sm:text-sm font-medium text-gray-300 font-['Poppins']">Hackathon Winner</span>
                             </div>
-                            <div className="px-3 py-1.5 sm:px-4 sm:py-2 bg-white/5 rounded-lg border border-white/10">
+                            <div className="px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 bg-white/5 rounded-lg border border-white/10 flex-shrink-0">
                                 <span className="text-xs sm:text-sm font-medium text-gray-300 font-['Poppins']">Frontend</span>
                             </div>
                         </div>

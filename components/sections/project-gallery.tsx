@@ -55,12 +55,17 @@ export default function ScrollBlurGallery() {
                     -moz-osx-font-smoothing: grayscale;
                 }
 
+                /* Updated blur effects - subtle for all screen sizes */
                 .card-blur {
-                    filter: blur(8px);
-                    opacity: 0.7;
-                    transform: scale(0.95) translateY(20px);
+                    filter: blur(2px);
+                    opacity: 0.8;
+                    transform: scale(0.98) translateY(10px);
                     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-                    background-color: transparent;
+                    background-color: rgba(255, 255, 255, 0.85);
+                    color: #000000;
+                    border-radius: 16px;
+                    padding: 16px;
+                    box-shadow: 0 2px 15px rgba(255, 255, 255, 0.05);
                 }
 
                 .card-visible {
@@ -83,15 +88,22 @@ export default function ScrollBlurGallery() {
                     color: #000000;
                 }
 
-                .card-visible .text-gray-400 {
+                .card-blur .card-content {
+                    color: #000000;
+                }
+
+                .card-visible .text-gray-400,
+                .card-blur .text-gray-400 {
                     color: #666666 !important;
                 }
 
-                .card-visible .text-gray-300 {
+                .card-visible .text-gray-300,
+                .card-blur .text-gray-300 {
                     color: #333333 !important;
                 }
 
-                .card-visible .bg-gray-800 {
+                .card-visible .bg-gray-800,
+                .card-blur .bg-gray-800 {
                     background-color: #f3f4f6 !important;
                     color: #374151 !important;
                     border-color: #d1d5db !important;
@@ -141,11 +153,11 @@ export default function ScrollBlurGallery() {
                     order: 2;
                 }
 
-                /* Image blur effects for all screen sizes */
+                /* Updated image blur effects - subtle for all screen sizes */
                 .image-blur {
-                    filter: blur(8px);
-                    opacity: 0.7;
-                    transform: scale(0.95);
+                    filter: blur(2px);
+                    opacity: 0.8;
+                    transform: scale(0.98);
                     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
                 }
 
@@ -163,16 +175,8 @@ export default function ScrollBlurGallery() {
                         padding-right: 8px;
                     }
 
-                    /* Remove blur effects for mobile - show cards normally */
                     .card-blur {
-                        filter: none;
-                        opacity: 1;
-                        transform: none;
-                        background-color: rgba(255, 255, 255, 0.95);
-                        color: #000000;
-                        border-radius: 16px;
                         padding: 24px;
-                        box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
                     }
 
                     .card-visible {
@@ -185,19 +189,6 @@ export default function ScrollBlurGallery() {
                     .card-content {
                         padding: 0;
                         width: 100%;
-                    }
-
-                    /* Mobile card content styling */
-                    .card-blur .card-content {
-                        color: #000000;
-                    }
-
-                    .card-blur .text-gray-400 {
-                        color: #666666 !important;
-                    }
-
-                    .card-blur .text-gray-300 {
-                        color: #333333 !important;
                     }
 
                     .project-grid {
@@ -220,7 +211,7 @@ export default function ScrollBlurGallery() {
                         line-height: 1.3;
                         margin-bottom: 16px;
                         font-weight: 500;
-                        color: #000000 !important; /* Always black on mobile */
+                        color: #000000 !important;
                     }
 
                     .project-text p {
@@ -229,7 +220,7 @@ export default function ScrollBlurGallery() {
                         margin-bottom: 20px;
                         padding: 0;
                         font-weight: 400;
-                        color: #333333 !important; /* Always dark on mobile */
+                        color: #333333 !important;
                     }
 
                     .project-text span {
@@ -237,7 +228,7 @@ export default function ScrollBlurGallery() {
                         display: inline-block;
                         margin-top: 0;
                         font-weight: 500;
-                        color: #000000 !important; /* Always black on mobile */
+                        color: #000000 !important;
                     }
 
                     .project-text .space-y-4 {
@@ -393,7 +384,7 @@ export default function ScrollBlurGallery() {
                                             className={`font-medium leading-tight tracking-tight ${visibleProjects.has(project.id) ? 'decrypt-animation' : ''}`}
                                             style={{
                                                 fontSize: 'clamp(28px, 6vw, 48px)',
-                                                color: visibleProjects.has(project.id) ? '#000000' : '#ffffff'
+                                                color: '#000000'
                                             }}
                                         >
                                             {project.title}
@@ -404,7 +395,7 @@ export default function ScrollBlurGallery() {
                                         className="leading-relaxed font-medium tracking-wide"
                                         style={{
                                             fontSize: 'clamp(18px, 4.5vw, 24px)',
-                                            color: visibleProjects.has(project.id) ? '#333333' : '#d1d5db'
+                                            color: '#333333'
                                         }}
                                     >
                                         {project.description}
@@ -415,7 +406,7 @@ export default function ScrollBlurGallery() {
                                             className="cursor-pointer font-medium tracking-wide underline decoration-2 underline-offset-4 hover:no-underline transition-all duration-300"
                                             style={{
                                                 fontSize: 'clamp(16px, 4vw, 22px)',
-                                                color: visibleProjects.has(project.id) ? '#000000' : '#ffffff'
+                                                color: '#000000'
                                             }}
                                             onClick={() => handleViewDetails(project.slug)}
                                         >

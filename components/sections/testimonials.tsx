@@ -52,28 +52,35 @@ export default function Testimonials() {
   return (
       <section className="py-8 sm:py-12 md:py-16 lg:py-8 xl:py-8 bg-black overflow-hidden">
         <div className="container mx-auto px-4">
-          <div className="text-left mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-16">
-            <div className="inline-block px-3 py-1 sm:px-4 sm:py-2 bg-white/10 rounded-full border border-white/20 mb-3 sm:mb-4 md:mb-6">
-            <span
-                className="text-white text-xs sm:text-sm font-medium"
-                style={{ fontFamily: "'Inter', 'SF Pro Display', sans-serif" }}
-            >
-              Client Stories
-            </span>
-            </div>
-            <h2
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-4 lg:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300"
-                style={{ fontFamily: "'Poppins', 'Inter', sans-serif", fontWeight: 550, lineHeight: 1.2 }}
-            >
-              Real Feedback from
-              <br />
-              Transformative Collaborations
-            </h2>
+          <div
+              className="inline-block px-3 py-1 sm:px-4 sm:py-2 bg-white/10 rounded-full border border-white/20 mb-3 md:mb-4">
+    <span
+        className="text-white text-xs sm:text-sm font-medium"
+        style={{fontFamily: "'Poppins', 'Inter', 'SF Pro Display', sans-serif"}}
+    >
+        My Services
+    </span>
           </div>
+
+          <h2
+              className="text-xl sm:text-2xl md:text-4xl lg:text-4xl xl:text-5xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300 leading-tight sm:leading-normal lg:whitespace-pre-line"
+              style={{fontFamily: "'Poppins', sans-serif", fontWeight: 600, lineHeight: 1.2}}
+          >
+    <span className="block sm:hidden leading-tight">
+       Real Feedback from<br/> Transformative Collaborations
+    </span>
+            <span className="hidden sm:block lg:hidden">
+        Real Feedback from<br/> Transformative Collaborations
+    </span>
+            <span className="hidden lg:block">
+        Real Feedback from<br/> Transformative Collaborations
+    </span>
+          </h2>
+
 
           <motion.div
               className="flex gap-4 sm:gap-6"
-              animate={{ x: ["0%", "-50%"] }}
+              animate={{x: ["0%", "-50%"]}}
               transition={{
                 x: {
                   repeat: Infinity,
@@ -82,18 +89,18 @@ export default function Testimonials() {
                   ease: "linear",
                 },
               }}
-              style={{ willChange: "transform" }}
+              style={{willChange: "transform"}}
           >
             {[...testimonials, ...testimonials].map((testimonial, index) => (
                 <motion.div
                     key={`testimonial-${index}`}
                     className="min-w-[280px] sm:min-w-[320px] max-w-[320px] sm:max-w-[360px] flex-shrink-0"
-                    whileHover={{ scale: 1.03, zIndex: 10 }}
-                    transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                    whileHover={{scale: 1.03, zIndex: 10}}
+                    transition={{type: "spring", stiffness: 200, damping: 20}}
                 >
                   <Card
                       className="bg-black/80 border-white/10 hover:border-white/30 transition-all duration-300 shadow-2xl h-full"
-                      style={{ fontFamily: "'Poppins', sans-serif" }}
+                      style={{fontFamily: "'Poppins', sans-serif"}}
                   >
                     <CardContent className="p-4 sm:p-6 h-full flex flex-col">
                       <div className="flex mb-3 sm:mb-4">
@@ -106,7 +113,7 @@ export default function Testimonials() {
                       </div>
                       <p
                           className="text-gray-200 mb-4 sm:mb-6 leading-relaxed italic text-sm sm:text-base flex-grow"
-                          style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 400 }}
+                          style={{fontFamily: "'Poppins', sans-serif", fontWeight: 400}}
                       >
                         "{testimonial.content}"
                       </p>
@@ -121,13 +128,13 @@ export default function Testimonials() {
                         <div className="min-w-0 flex-1">
                           <h4
                               className="text-white font-semibold text-sm sm:text-base truncate"
-                              style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 600 }}
+                              style={{fontFamily: "'Poppins', sans-serif", fontWeight: 600}}
                           >
                             {testimonial.name}
                           </h4>
                           <p
                               className="text-gray-400 text-xs sm:text-sm leading-tight"
-                              style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 400 }}
+                              style={{fontFamily: "'Poppins', sans-serif", fontWeight: 400}}
                           >
                             {testimonial.role}
                           </p>

@@ -1,24 +1,14 @@
 "use client";
 
-import {
-  GraduationCap,
-  Smartphone,
-  BookOpen,
-  Globe,
-  Shield,
-  Briefcase,
-  Trophy,
-} from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
-// Timeline data (corrected and complete)
+// Timeline data (Hackathon event removed)
 const timelineEvents = [
   {
     year: "2021",
     title: "B.Tech in Computer Science",
     description: "Started my journey at St. Peter's Engineering College, mastering coding with a CGPA of 8.43.",
-    icon: GraduationCap,
     category: "Education",
     avatar: "🎓",
     stats: "CGPA: 8.43/10",
@@ -27,7 +17,6 @@ const timelineEvents = [
     year: "2023",
     title: "CampusBuzz",
     description: "Built a cross-platform mobile application with Flutter and Firebase, streamlining college events with smart recommendations.",
-    icon: Smartphone,
     category: "Project",
     avatar: "📱",
     stats: "Flutter • Firebase",
@@ -36,7 +25,6 @@ const timelineEvents = [
     year: "2023",
     title: "Smart Read",
     description: "Crafted a reading platform with React.js and Spotify API, boosting user engagement by 40%.",
-    icon: BookOpen,
     category: "Project",
     avatar: "📚",
     stats: "React.js • Spotify API",
@@ -45,7 +33,6 @@ const timelineEvents = [
     year: "2024",
     title: "The Team Events",
     description: "Developed an event booking platform with React, ShadCN, and Clerk for a sleek, secure interface.",
-    icon: Globe,
     category: "Project",
     avatar: "🎯",
     stats: "React • ShadCN • Clerk",
@@ -54,7 +41,6 @@ const timelineEvents = [
     year: "2024",
     title: "Emmanuel Living Impact Mission",
     description: "Created a church platform with React and EmailJS, reducing administrative follow-ups by 50%.",
-    icon: Shield,
     category: "Project",
     avatar: "⛪",
     stats: "React • EmailJS",
@@ -63,25 +49,102 @@ const timelineEvents = [
     year: "2025",
     title: "Frontend Intern at Viral Bug",
     description: "Shipped 4 production-grade apps with Next.js, achieving 90% Lighthouse performance scores.",
-    icon: Briefcase,
     category: "Experience",
     avatar: "💼",
     stats: "Next.js • 4 Apps • 90% Score",
   },
+];
+
+// Technology data with multiple images per technology group
+const technologies = [
   {
-    year: "2025",
-    title: "Hackathon Champion",
-    description: "Won 1st in Hacktopia, 2nd in Specathon, and represented Telangana in Cesto Ball.",
-    icon: Trophy,
-    category: "Achievement",
-    avatar: "🏆",
-    stats: "1st Place • 2nd Place",
+    name: "JavaScript, TypeScript, Java",
+    images: [
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+    ]
+  },
+  {
+    name: "React, Redux, Next.js",
+    images: [
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg",
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
+    ]
+  },
+  {
+    name: "Tailwind CSS, ShadCN",
+    images: [
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg",
+      "https://ui.shadcn.com/favicon.ico"
+    ]
+  },
+  {
+    name: "Firebase, Firestore",
+    images: [
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg"
+    ]
+  },
+  {
+    name: "Git, GitHub, GitLab",
+    images: [
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg"
+    ]
+  },
+  {
+    name: "Vercel, Netlify",
+    images: [
+      "https://assets.vercel.com/image/upload/v1662130559/nextjs/Icon_light_background.png",
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg"
+    ]
+  },
+  {
+    name: "Figma, Postman",
+    images: [
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg"
+    ]
+  },
+  {
+    name: "Jest, Cypress",
+    images: [
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg",
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cypressio/cypressio-original.svg"
+    ]
+  },
+];
+
+// Certifications data with images
+const certifications = [
+  {
+    cert: "Google Cloud Computing Foundations",
+    provider: "Google Cloud",
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg"
+  },
+  {
+    cert: "Full-Stack Web Development",
+    provider: "Udemy",
+    image: "https://logoeps.com/wp-content/uploads/2013/03/udemy-vector-logo.png"
+  },
+  {
+    cert: "Problem-Solving Certification",
+    provider: "Coursera",
+    image: "https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera-university-assets.s3.amazonaws.com/e8/7cc8d09d3f11e698dfff46d35f2da1/coursera_logo_square.png"
+  },
+  {
+    cert: "Responsive Web Design",
+    provider: "Coursera",
+    image: "https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera-university-assets.s3.amazonaws.com/e8/7cc8d09d3f11e698dfff46d35f2da1/coursera_logo_square.png"
   },
 ];
 
 export default function IntroTimeline() {
-  const ref = useRef(null);
-  const containerRef = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
 
   // Calculate container height for the animated line
@@ -95,39 +158,39 @@ export default function IntroTimeline() {
   // Scroll progress for the animated line
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 10%", "end 50%"],
+    offset: ["start 10%", "end 85%"],
   });
 
   const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
-      <>
-        <section className="py-12 xs:py-16 sm:py-20 min-h-screen bg-black" ref={containerRef}>
-          <div className="container mx-auto px-2 xs:px-3 sm:px-4 max-w-4xl sm:max-w-5xl md:max-w-6xl 2xl:max-w-7xl">
+      <div className="w-full overflow-x-hidden">
+        <section className="py-8 sm:py-12 md:py-16 lg:py-20 min-h-screen bg-black" ref={containerRef}>
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             {/* Header */}
             <motion.div
-                className="text-left mb-6 xs:mb-8 md:mb-12 lg:mb-16"
+                className="text-left mb-8 sm:mb-12 lg:mb-16"
                 initial={{ opacity: 0, y: -30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <div className="inline-block px-2 xs:px-3 sm:px-4 py-1 sm:py-2 bg-white/10 rounded-full border border-white/20 mb-3 xs:mb-4 md:mb-6">
+              <div className="inline-block px-3 py-1.5 bg-white/10 rounded-full border border-white/20 mb-4">
               <span
-                  className="text-white text-[10px] xs:text-xs sm:text-sm font-medium"
+                  className="text-white text-xs sm:text-sm font-medium"
                   style={{ fontFamily: "'Poppins', sans-serif" }}
               >
                 MY JOURNEY
               </span>
               </div>
               <h2
-                  className="text-lg xs:text-xl sm:text-2xl md:text-4xl lg:text-5xl 2xl:text-6xl font-bold mb-3 xs:mb-4 md:mb-6 text-white whitespace-normal"
-                  style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 550, lineHeight: 1.2 }}
+                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white"
+                  style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 600, lineHeight: 1.2 }}
               >
                 From Dreamer to Developer
               </h2>
               <p
-                  className="text-gray-400 text-xs xs:text-sm sm:text-base md:text-base max-w-xs sm:max-w-sm md:max-w-md 2xl:max-w-lg"
+                  className="text-gray-400 text-sm sm:text-base max-w-md lg:max-w-lg"
                   style={{ fontFamily: "'Poppins', sans-serif" }}
               >
                 A passionate journey through code, innovation, and continuous learning
@@ -135,16 +198,31 @@ export default function IntroTimeline() {
             </motion.div>
 
             {/* Timeline */}
-            <div ref={ref} className="relative pb-12 xs:pb-16 md:pb-20">
+            <div ref={ref} className="relative pb-12 sm:pb-16 lg:pb-20">
               {timelineEvents.map((event, index) => (
-                  <div key={index} className="flex justify-start pt-6 xs:pt-8 md:pt-40 md:gap-10">
+                  <motion.div
+                      key={index}
+                      className="flex justify-start pt-6 sm:pt-8 md:pt-12 lg:pt-16 gap-3 sm:gap-6 md:gap-8"
+                      initial={{ opacity: 0, x: -50 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{
+                        duration: 0.8,
+                        delay: index * 0.1,
+                        ease: "easeOut"
+                      }}
+                      viewport={{ once: true, margin: "-100px" }}
+                  >
                     {/* Sticky Year Section */}
-                    <div className="flex flex-col md:flex-row z-40 items-center top-20 xs:top-24 sm:top-28 md:sticky md:top-40 self-start max-w-[100px] xs:max-w-[120px] sm:max-w-xs lg:max-w-sm md:w-full">
-                      <div className="h-8 xs:h-9 sm:h-10 absolute left-3 w-8 xs:w-9 sm:w-10 rounded-full bg-black flex items-center justify-center">
-                        <div className="h-3 xs:h-3.5 sm:h-4 w-3 xs:w-3.5 sm:w-4 rounded-full bg-blue-400 border border-white/20 p-1.5 xs:p-2" />
+                    <div className="flex flex-col md:flex-row z-40 items-center top-16 sm:top-20 md:sticky md:top-24 self-start max-w-[70px] sm:max-w-[90px] md:max-w-[120px]">
+                      <div className="h-7 sm:h-8 md:h-10 absolute left-2.5 sm:left-3 md:left-4 w-7 sm:w-8 md:w-10 rounded-full bg-black flex items-center justify-center">
+                        <motion.div
+                            className="h-3 sm:h-3.5 md:h-4 w-3 sm:w-3.5 md:w-4 rounded-full bg-blue-400 border border-white/20"
+                            whileInView={{ scale: [0, 1.2, 1] }}
+                            transition={{ duration: 0.6, delay: index * 0.1 }}
+                        />
                       </div>
                       <h3
-                          className="hidden md:block text-lg xs:text-xl md:pl-20 md:text-5xl font-bold text-gray-400"
+                          className="hidden md:block text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-400 pl-0 md:pl-12 lg:pl-16"
                           style={{ fontFamily: "'Poppins', sans-serif" }}
                       >
                         {event.year}
@@ -152,40 +230,44 @@ export default function IntroTimeline() {
                     </div>
 
                     {/* Content Section */}
-                    <div className="relative pl-12 xs:pl-16 sm:pl-20 pr-2 xs:pr-3 sm:pr-4 md:pl-4 w-full">
+                    <div className="relative pl-10 sm:pl-12 md:pl-0 flex-1 max-w-full">
                       <h3
-                          className="md:hidden block text-lg xs:text-xl sm:text-2xl mb-3 xs:mb-4 text-left font-bold text-gray-400"
+                          className="md:hidden text-lg sm:text-xl mb-2 sm:mb-3 font-bold text-gray-400"
                           style={{ fontFamily: "'Poppins', sans-serif" }}
                       >
                         {event.year}
                       </h3>
-                      <div className="flex items-start gap-4 xs:gap-5 sm:gap-6">
+                      <div className="flex items-start gap-3 sm:gap-4 md:gap-6">
                         {/* Avatar/Image */}
-                        <div className="w-12 xs:w-14 sm:w-16 h-12 xs:h-14 sm:h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-xl xs:text-2xl shrink-0">
+                        <motion.div
+                            className="w-10 sm:w-12 md:w-14 h-10 sm:h-12 md:h-14 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-lg sm:text-xl md:text-2xl shrink-0"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ duration: 0.3 }}
+                        >
                           {event.avatar}
-                        </div>
+                        </motion.div>
                         {/* Text Content */}
-                        <div>
+                        <div className="flex-1 min-w-0">
                       <span
-                          className="inline-block px-2 xs:px-3 sm:px-3 py-0.5 xs:py-1 bg-blue-400/20 text-white text-[10px] xs:text-xs sm:text-xs font-semibold uppercase tracking-wider rounded-full border border-blue-400/30 mb-3 xs:mb-4"
+                          className="inline-block px-2.5 sm:px-3 py-1 bg-blue-400/20 text-white text-xs font-semibold uppercase rounded-full border border-blue-400/30 mb-2 sm:mb-3"
                           style={{ fontFamily: "'Poppins', sans-serif" }}
                       >
                         {event.category}
                       </span>
                           <h3
-                              className="text-base xs:text-lg sm:text-xl font-bold text-white mb-2 xs:mb-3"
+                              className="text-base sm:text-lg md:text-xl font-bold text-white mb-2"
                               style={{ fontFamily: "'Poppins', sans-serif" }}
                           >
                             {event.title}
                           </h3>
                           <p
-                              className="text-gray-300 text-xs xs:text-sm sm:text-sm leading-relaxed mb-3 xs:mb-4 max-w-[280px] xs:max-w-xs sm:max-w-md md:max-w-md 2xl:max-w-lg"
+                              className="text-gray-300 text-sm sm:text-base leading-relaxed mb-3 break-words"
                               style={{ fontFamily: "'Poppins', sans-serif" }}
                           >
                             {event.description}
                           </p>
                           <span
-                              className="inline-flex items-center gap-1.5 xs:gap-2 px-3 xs:px-4 py-1 xs:py-2 bg-white/5 rounded-full text-white text-[10px] xs:text-xs sm:text-xs font-medium border border-white/10"
+                              className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 bg-white/5 rounded-full text-white text-xs font-medium border border-white/10"
                               style={{ fontFamily: "'Poppins', sans-serif" }}
                           >
                         {event.stats}
@@ -193,78 +275,85 @@ export default function IntroTimeline() {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
               ))}
 
               {/* Animated Vertical Line */}
               <div
                   style={{ height: height + "px" }}
-                  className="absolute left-6 xs:left-7 sm:left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-white/20 to-transparent to-[99%] [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
+                  className="absolute left-5 sm:left-6 md:left-8 top-0 w-[2px] bg-[linear-gradient(to_bottom,transparent,white/20,transparent)] [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
               >
                 <motion.div
-                    style={{
-                      height: heightTransform,
-                      opacity: opacityTransform,
-                    }}
-                    className="absolute inset-x-0 top-0 w-[2px] bg-gradient-to-t from-blue-400 via-blue-500 to-transparent from-[0%] via-[10%] rounded-full"
+                    style={{ height: heightTransform, opacity: opacityTransform }}
+                    className="absolute inset-x-0 top-0 w-[2px] bg-gradient-to-t from-blue-400 via-blue-500 to-transparent rounded-full"
                 />
               </div>
             </div>
 
             {/* Technical Skills */}
             <motion.div
-                className="mt-16 xs:mt-20 sm:mt-24 md:mt-32"
+                className="mt-16 sm:mt-20 lg:mt-24 xl:mt-32"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                viewport={{ once: true }}
             >
-              <div className="text-left mb-6 xs:mb-8 md:mb-12 lg:mb-16">
-                <div className="inline-block px-2 xs:px-3 sm:px-4 py-1 sm:py-2 bg-white/10 rounded-full border border-white/20 mb-3 xs:mb-4 md:mb-6">
+              <div className="text-left mb-8 sm:mb-12 lg:mb-16">
+                <div className="inline-block px-3 py-1.5 bg-white/10 rounded-full border border-white/20 mb-4">
                 <span
-                    className="text-white text-[10px] xs:text-xs sm:text-sm font-medium"
+                    className="text-white text-xs sm:text-sm font-medium"
                     style={{ fontFamily: "'Poppins', sans-serif" }}
                 >
                   TECH STACK
                 </span>
                 </div>
                 <h3
-                    className="text-lg xs:text-xl sm:text-2xl md:text-4xl lg:text-5xl 2xl:text-6xl font-bold text-white mb-3 xs:mb-4 md:mb-6"
-                    style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 550, lineHeight: 1.2 }}
+                    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4"
+                    style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 600, lineHeight: 1.2 }}
                 >
                   Technologies and Tools
                 </h3>
                 <p
-                    className="text-gray-400 text-xs xs:text-sm sm:text-base md:text-base max-w-xs sm:max-w-sm md:max-w-md 2xl:max-w-lg"
+                    className="text-gray-400 text-sm sm:text-base max-w-md lg:max-w-lg"
                     style={{ fontFamily: "'Poppins', sans-serif" }}
                 >
                   The tools I use to build innovative solutions
                 </p>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 2xl:grid-cols-5 gap-3 xs:gap-4 sm:gap-4">
-                {[
-                  "JavaScript, TypeScript, Java",
-                  "React, Redux, Next.js",
-                  "Tailwind CSS, ShadCN",
-                  "Firebase, Firestore",
-                  "Git, GitHub, GitLab",
-                  "Vercel, Netlify",
-                  "Figma, Postman",
-                  "Jest, Cypress",
-                ].map((skill, index) => (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+                {technologies.map((tech, index) => (
                     <motion.div
                         key={index}
-                        className="p-4 xs:p-5 sm:p-6 bg-white/5 rounded-lg border border-white/10 text-white text-center hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+                        className="p-4 sm:p-5 bg-white/5 rounded-lg border border-white/10 text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300"
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                        transition={{
+                          duration: 0.6,
+                          delay: index * 0.1,
+                          ease: "easeOut"
+                        }}
+                        whileHover={{ scale: 1.02, y: -5 }}
+                        viewport={{ once: true }}
                     >
-                      <div
-                          className="text-xs xs:text-sm sm:text-sm font-medium"
+                      <div className="flex items-center gap-2 sm:gap-3 mb-3">
+                        {tech.images.map((image, imgIndex) => (
+                            <img
+                                key={imgIndex}
+                                src={image}
+                                alt={`${tech.name} icon ${imgIndex + 1}`}
+                                className="w-5 sm:w-6 h-5 sm:h-6 object-contain"
+                                onError={(e) => {
+                                  e.currentTarget.style.display = 'none';
+                                }}
+                            />
+                        ))}
+                      </div>
+                      <span
+                          className="text-sm sm:text-base font-medium block"
                           style={{ fontFamily: "'Poppins', sans-serif" }}
                       >
-                        {skill}
-                      </div>
+                    {tech.name}
+                  </span>
                     </motion.div>
                 ))}
               </div>
@@ -272,60 +361,66 @@ export default function IntroTimeline() {
 
             {/* Certifications */}
             <motion.div
-                className="mt-16 xs:mt-20 sm:mt-24 md:mt-32"
+                className="mt-16 sm:mt-20 lg:mt-24 xl:mt-32 pb-8 sm:pb-12"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                viewport={{ once: true }}
             >
-              <div className="text-left mb-6 xs:mb-8 md:mb-12 lg:mb-16">
-                <div className="inline-block px-2 xs:px-3 sm:px-4 py-1 sm:py-2 bg-white/10 rounded-full border border-white/20 mb-3 xs:mb-4 md:mb-6">
+              <div className="text-left mb-8 sm:mb-12 lg:mb-16">
+                <div className="inline-block px-3 py-1.5 bg-white/10 rounded-full border border-white/20 mb-4">
                 <span
-                    className="text-white text-[10px] xs:text-xs sm:text-sm font-medium"
+                    className="text-white text-xs sm:text-sm font-medium"
                     style={{ fontFamily: "'Poppins', sans-serif" }}
                 >
                   CERTIFICATIONS
                 </span>
                 </div>
                 <h3
-                    className="text-lg xs:text-xl sm:text-2xl md:text-4xl lg:text-5xl 2xl:text-6xl font-bold text-white mb-3 xs:mb-4 md:mb-6"
-                    style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 550, lineHeight: 1.2 }}
+                    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4"
+                    style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 600, lineHeight: 1.2 }}
                 >
                   Professional Credentials
                 </h3>
                 <p
-                    className="text-gray-400 text-xs xs:text-sm sm:text-base md:text-base max-w-xs sm:max-w-sm md:max-w-md 2xl:max-w-lg"
+                    className="text-gray-400 text-sm sm:text-base max-w-md lg:max-w-lg"
                     style={{ fontFamily: "'Poppins', sans-serif" }}
                 >
                   Achievements that validate my expertise
                 </p>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4 xs:gap-5 sm:gap-6">
-                {[
-                  { cert: "Google Cloud Computing Foundations", provider: "Google Cloud", avatar: "☁️" },
-                  { cert: "Full-Stack Web Development", provider: "Udemy", avatar: "🌐" },
-                  { cert: "Problem-Solving Certification", provider: "Coursera", avatar: "🧠" },
-                  { cert: "Responsive Web Design", provider: "Coursera", avatar: "📱" },
-                ].map((item, index) => (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                {certifications.map((item, index) => (
                     <motion.div
                         key={index}
-                        className="flex items-start gap-3 xs:gap-4 sm:gap-4"
+                        className="p-4 sm:p-5 bg-white/5 rounded-lg border border-white/10 flex items-start gap-4 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
                         initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6, delay: index * 0.1 }}
-                        whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+                        transition={{
+                          duration: 0.6,
+                          delay: index * 0.1,
+                          ease: "easeOut"
+                        }}
+                        whileHover={{ scale: 1.02, y: -3 }}
+                        viewport={{ once: true }}
                     >
-                      <div className="w-10 xs:w-11 sm:w-12 h-10 xs:h-11 sm:h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-lg xs:text-xl sm:text-xl shrink-0">
-                        {item.avatar}
-                      </div>
-                      <div className="flex-1">
+                      <img
+                          src={item.image}
+                          alt={`${item.cert} icon`}
+                          className="w-8 sm:w-10 h-8 sm:h-10 object-contain shrink-0"
+                          onError={(e) => {
+                            e.currentTarget.src = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iOCIgZmlsbD0iIzM3NDE1MSIvPgo8dGV4dCB4PSIyMCIgeT0iMjQiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiM5Q0EzQUYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkM8L3RleHQ+Cjwvc3ZnPgo=";
+                          }}
+                      />
+                      <div className="flex-1 min-w-0">
                         <h4
-                            className="text-white text-sm xs:text-base sm:text-base font-semibold mb-1"
+                            className="text-white text-sm sm:text-base font-semibold mb-1 break-words"
                             style={{ fontFamily: "'Poppins', sans-serif" }}
                         >
                           {item.cert}
                         </h4>
                         <p
-                            className="text-gray-400 text-xs xs:text-sm sm:text-sm"
+                            className="text-gray-400 text-xs sm:text-sm"
                             style={{ fontFamily: "'Poppins', sans-serif" }}
                         >
                           {item.provider}
@@ -337,23 +432,6 @@ export default function IntroTimeline() {
             </motion.div>
           </div>
         </section>
-
-        {/* Custom styles for fine-tuned responsiveness */}
-        <style jsx>{`
-        @media (max-width: 639px) {
-          .sticky {
-            position: static !important;
-          }
-          .absolute.left-6 {
-            left: 1.5rem;
-          }
-        }
-        @media (min-width: 1536px) {
-          .container {
-            max-width: 80rem;
-          }
-        }
-      `}</style>
-      </>
+      </div>
   );
 }

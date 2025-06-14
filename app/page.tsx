@@ -9,6 +9,7 @@ import CTASection from "@/components/sections/ctasection";
 import PortfolioLayout from "@/components/sections/portfoliolayout ";
 import PremiumPortfolio from "@/components/sections/portfoliolayout ";
 import CreativeAboutSection from "@/components/sections/featured-projects";
+import GlowText from "@/components/sections/glowtext";
 
 
 export default function HomePage() {
@@ -28,6 +29,7 @@ export default function HomePage() {
           <Uniqueness/>
           <PremiumPortfolio/>
           <Testimonials/>
+          {/*<GlowText/>*/}
           <ContactPreview/>
 
       </main>

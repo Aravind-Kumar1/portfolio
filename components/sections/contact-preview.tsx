@@ -94,7 +94,7 @@ export default function ContactPreview() {
                     </div>
 
                     {/* RIGHT SIDE — NAV + CONNECT */}
-                    <div className="w-full lg:w-auto flex flex-col sm:flex-row sm:justify-between gap-8 sm:gap-12 lg:gap-16">
+                    <div className="w-full lg:w-auto mr-48 flex flex-col sm:flex-row sm:justify-between gap-8 sm:gap-12 lg:gap-16">
                         {/* NAVIGATION LINKS */}
                         <div className="flex flex-col gap-1.5">
                             <h4 className="text-sm font-medium text-gray-300 uppercase tracking-wider mb-1">Navigation</h4>

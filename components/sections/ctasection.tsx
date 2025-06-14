@@ -33,7 +33,9 @@ export default function CTASection({ labelText, heroText }: CTASectionProps) {
 
                             {/* Hero Text */}
                             <h2
-                                className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-white mt-4 mb-3 sm:mb-8 md:mb-10 lg:mb-2 leading-[1.6] sm:leading-[1.8] md:leading-[2.25] lg:leading-[2.2] xl:leading-[1.3]"
+                                className="font-light text-white mt-4 mb-3 sm:mb-8 md:mb-10 lg:mb-2
+             text-[1.35rem] sm:text-[2rem] md:text-[2.8rem] lg:text-[5rem] xl:text-[3.7rem]
+             leading-[1.6] sm:leading-[1.8] md:leading-[2.25] lg:leading-[2.2] xl:leading-[1.3]"
                             >
                                 {heroText || defaultHeroText}
                             </h2>
