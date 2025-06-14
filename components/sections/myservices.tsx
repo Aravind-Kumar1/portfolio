@@ -48,7 +48,7 @@ export default function MyServices() {
                         style={{ fontFamily: "'Poppins', 'Inter', sans-serif", fontWeight: 550, lineHeight: 1.2 }}
                     >
                         <span className="block sm:hidden leading-tight">
-                            Crafting Innovative Solutions to Elevate Your Digital Presence
+                            Crafting Innovative Solutions<br />to Elevate Your Digital Presence
                         </span>
                         <span className="hidden sm:block lg:hidden">
                             Crafting Innovative Solutions{"\n"}
@@ -67,7 +67,7 @@ export default function MyServices() {
                         return (
                             <Card
                                 key={index}
-                                className="bg-black/40 border-white/10 hover:border-blue-400/30 transition-all duration-500 group overflow-hidden relative h-[240px] sm:h-[350px] md:h-[400px] lg:h-[450px] rounded-[12px] sm:rounded-[14px] w-full max-w-[280px] sm:max-w-none mx-auto"
+                                className="bg-black/40 border-white/10 hover:border-blue-400/30 transition-all duration-500 group overflow-hidden relative h-[260px] sm:h-[350px] md:h-[400px] lg:h-[450px] rounded-[12px] sm:rounded-[14px] w-full max-w-[320px] sm:max-w-none mx-auto"
                             >
                                 <CardContent className="p-0 h-full relative">
                                     {/* Image Section */}

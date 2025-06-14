@@ -33,7 +33,7 @@ export default function CTASection({ labelText, heroText }: CTASectionProps) {
 
                             {/* Hero Text */}
                             <h2
-                                className="text-lg sm:text-xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-white mt-6 mb-4 sm:mb-8 md:mb-10 lg:mb-2 leading-[1.6] sm:leading-[1.8] md:leading-[2.25] lg:leading-[2.2] xl:leading-[1.3]"
+                                className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-white mt-4 mb-3 sm:mb-8 md:mb-10 lg:mb-2 leading-[1.6] sm:leading-[1.8] md:leading-[2.25] lg:leading-[2.2] xl:leading-[1.3]"
                             >
                                 {heroText || defaultHeroText}
                             </h2>
@@ -41,7 +41,7 @@ export default function CTASection({ labelText, heroText }: CTASectionProps) {
 
                             {/* CTA Buttons - Side by Side, Left Aligned */}
                             <div
-                                className="flex flex-row gap-2 sm:gap-3 md:gap-4 justify-start mt-6 sm:mt-8 md:mt-12 px-2 sm:px-0">
+                                className="flex flex-row gap-3 sm:gap-3 md:gap-4 justify-start mt-4 sm:mt-8 md:mt-12 px-0 sm:px-0">
                                 <button
                                     className="group relative px-3 py-2 sm:px-4 sm:py-2.3 md:px-8 md:py-4 lg:px-10 lg:py-5 bg-white text-blue-600 font-semibold text-xs sm:text-sm md:text-lg lg:text-xl tracking-wide rounded-xl hover:bg-gray-100 transition-all duration-300 flex items-center justify-center shadow-2xl min-w-[120px] sm:min-w-[140px] md:min-w-[200px] lg:min-w-[240px]"
                                     onMouseEnter={() => setHoveredButton('primary')}

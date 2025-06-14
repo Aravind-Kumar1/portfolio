@@ -45,7 +45,7 @@ const DecryptText: React.FC<DecryptTextProps> = ({ text, isVisible, hasAnimated,
     }, [text, isVisible, hasAnimated, setHasAnimated]);
 
     return (
-        <span className="text-white" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 900 }}>
+        <span className="text-white" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 300 }}>
             {displayText || text}
         </span>
     );
@@ -206,40 +206,41 @@ const PremiumPortfolio: React.FC = () => {
                     </h2>
                 </div>
 
-                {/* Side-by-Side Cards Grid - 2 per row */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                {/* Side-by-Side Cards Grid - 1 per row on mobile, 2 on md+ */}
+                <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
                     {projects.map((project) => (
                         <div key={project.id} className="group relative">
-                            {/* Card Container - No hover scaling or transformations */}
+                            {/* Card Container */}
                             <div
-                                className="relative w-full h-[450px] sm:h-[500px] overflow-hidden border border-gray-800/50 hover:border-white/30 transition-colors duration-300 cursor-pointer"
+                                className="relative w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px] overflow-hidden border border-gray-800/50 hover:border-white/30 transition-colors duration-300 cursor-pointer p-0 m-0"
                                 onMouseEnter={() => handleMouseEnter(project.id)}
                                 onMouseLeave={() => setHoveredProject(null)}
                             >
                                 <img
                                     src={project.image}
                                     alt={project.title}
-                                    className="w-full h-full object-cover object-center"
+                                    className="w-full h-full object-cover"
                                 />
 
-                                {/* Buttons sliding up from bottom */}
-                                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-20">
+                                {/* Buttons - Visible initially on mobile, sliding up on hover for larger screens */}
+                                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent p-6 transform sm:translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-20">
                                     <div className="flex flex-row gap-4 sm:gap-6 lg:gap-8 items-start justify-center">
                                         <button
                                             onClick={() => openQuickView(project)}
-                                            className="bg-gradient-to-br from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white px-3 sm:px-4 lg:px-6 py-1.5 sm:py-2 lg:py-3 rounded-lg sm:rounded-xl font-medium text-[10px] sm:text-xs lg:text-lg transition-colors duration-200 min-w-[120px] sm:min-w-[140px] lg:min-w-[180px]"
+                                            className="bg-gradient-to-br from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white px-4 sm:px-4 lg:px-6 py-2 sm:py-2 lg:py-3 rounded-xl font-medium text-xs sm:text-sm lg:text-lg transition-colors duration-200 min-w-[120px] sm:min-w-[140px] lg:min-w-[180px]"
                                         >
                                             Quick View
                                         </button>
-                                        <button className="border-2 border-white/80 hover:border-white text-white hover:bg-white/10 px-3 sm:px-4 lg:px-6 py-1.5 sm:py-2 lg:py-3 rounded-lg sm:rounded-xl font-medium text-[10px] sm:text-xs lg:text-lg transition-colors duration-200 min-w-[120px] sm:min-w-[140px] lg:min-w-[180px]">
+                                        <button className="border-2 border-white/80 hover:border-white text-white hover:bg-white/10 px-4 sm:px-4 lg:px-6 py-2 sm:py-2 lg:py-3 rounded-xl font-medium text-xs sm:text-sm lg:text-lg transition-colors duration-200 min-w-[120px] sm:min-w-[140px] lg:min-w-[180px]">
                                             View Detail
                                         </button>
                                     </div>
                                 </div>
+
                             </div>
 
                             {/* Project Name and Arrow */}
-                            <div className="flex items-center justify-between mt-6">
+                            <div className="flex items-start justify-between mt-6 relative">
                                 <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white flex-1" style={{fontFamily: "'Poppins', sans-serif"}}>
                                     <DecryptText
                                         text={project.title}
@@ -251,8 +252,8 @@ const PremiumPortfolio: React.FC = () => {
                                         }))}
                                     />
                                 </h3>
-                                <button className="ml-4 hover:text-white transition-colors duration-200 group/arrow">
-                                    <ArrowRight className="w-8 h-8 text-gray-400 group-hover/arrow:text-white transition-transform duration-200 group-hover/arrow:-rotate-90"/>
+                                <button className="absolute top-0 right-0 hover:text-white transition-colors duration-200 group/arrow">
+                                    <ArrowRight className="w-8 h-8 text-gray-400 group-hover/arrow:text-white group-hover/arrow:translate-x-2 transition-all duration-200 rotate-45"/>
                                 </button>
                             </div>
                         </div>
@@ -270,15 +271,15 @@ const PremiumPortfolio: React.FC = () => {
 
             {/* Quick View Modal - Full Width */}
             {selectedProject && (
-                <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+                <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-2 sm:p-4">
                     <div className="bg-gray-900 rounded-2xl w-full max-w-[90vw] max-h-[90vh] overflow-hidden border border-gray-700 shadow-2xl">
                         {/* Modal Header */}
-                        <div className="flex items-center justify-between p-6 border-b border-gray-700">
-                            <div className="flex items-center gap-6">
-                                <span className="text-gray-400 text-lg" style={{fontFamily: "'Poppins', sans-serif", fontWeight: 400}}>
+                        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 sm:p-6 border-b border-gray-700">
+                            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
+                                <span className="text-gray-400 text-sm sm:text-base lg:text-lg" style={{fontFamily: "'Poppins', sans-serif", fontWeight: 400}}>
                                     {selectedProject.type} Project
                                 </span>
-                                <h3 className="text-3xl font-medium text-white" style={{fontFamily: "'Poppins', sans-serif", fontWeight: 400}}>
+                                <h3 className="text-xl sm:text-2xl lg:text-3xl font-medium text-white" style={{fontFamily: "'Poppins', sans-serif", fontWeight: 400}}>
                                     {selectedProject.title}
                                 </h3>
                             </div>
@@ -286,22 +287,21 @@ const PremiumPortfolio: React.FC = () => {
                                 onClick={closeQuickView}
                                 className="text-gray-400 hover:text-white transition-colors duration-200 p-2 hover:bg-gray-800 rounded-full"
                             >
-                                <X className="w-6 h-6" />
+                                <X className="w-5 h-5 sm:w-6 sm:h-6" />
                             </button>
                         </div>
 
                         {/* Modal Content */}
-                        <div className="p-8">
+                        <div className="p-3 sm:p-4 lg:p-8">
                             {/* Image Gallery with Cards */}
-                            <div className="relative mb-8">
-                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div className="relative mb-6 sm:mb-8">
+                                <div className="grid grid-cols-3 gap-2 sm:gap-4 lg:gap-6">
                                     {selectedProject.screenshots.map((screenshot, index) => (
                                         <div
                                             key={index}
-                                            className={`relative rounded-xl overflow-hidden bg-gray-800 border border-gray-600 transition-all duration-200 ${
+                                            className={`relative rounded-xl overflow-hidden bg-gray-800 border border-gray-600 transition-all duration-200 max-w-[120px] h-[100px] sm:max-w-[200px] sm:h-[120px] lg:max-w-[400px] lg:h-[320px] mx-auto p-0 m-0 ${
                                                 index === currentImageIndex ? 'ring-2 ring-blue-500' : ''
                                             }`}
-                                            style={{ width: '100%', maxWidth: '400px', height: '320px' }}
                                             onClick={() => setCurrentImageIndex(index)}
                                         >
                                             <img
@@ -319,30 +319,33 @@ const PremiumPortfolio: React.FC = () => {
                                         {currentImageIndex > 0 && (
                                             <button
                                                 onClick={prevImage}
-                                                className="absolute left-6 top-1/2 transform -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white p-3 rounded-full transition-colors duration-200 border border-gray-600"
+                                                className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white p-1 sm:p-2 lg:p-3 rounded-full transition-colors duration-200 border border-gray-600"
                                             >
-                                                <ArrowLeft className="w-6 h-6" />
+                                                <ArrowLeft className="w-3 h-3 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
                                             </button>
                                         )}
                                         <button
                                             onClick={nextImage}
-                                            className="absolute right-6 top-1/2 transform -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white p-3 rounded-full transition-colors duration-200 border border-gray-600"
+                                            className="absolute right-3 sm:right-4 top-1/2 transform -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white p-1 sm:p-2 lg:p-3 rounded-full transition-colors duration-200 border border-gray-600"
                                         >
-                                            <ArrowRight className="w-6 h-6" />
+                                            <ArrowRight className="w-3 h-3 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
                                         </button>
                                     </>
                                 )}
                             </div>
 
                             {/* Action Buttons */}
-                            <div className="flex gap-4 justify-end">
-                                <button className="bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white py-3 px-6 rounded-xl font-semibold transition-colors duration-200 flex items-center gap-2 text-base">
+                            {/* Action Buttons */}
+                            <div className="flex gap-2 sm:gap-3 lg:gap-4 justify-end flex-wrap mt-4 sm:mt-6 md:mt-8 px-2 sm:px-0">
+                                <button className="bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white font-semibold text-[10px] sm:text-sm lg:text-base tracking-wide rounded-xl transition-all duration-300 flex items-center justify-center shadow-md py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 min-w-[100px] sm:min-w-[120px] lg:min-w-[140px] hover:scale-[1.03]">
                                     Get In Touch
                                 </button>
-                                <button className="border-2 border-gray-600 hover:border-gray-500 text-gray-300 hover:bg-gray-800/50 py-3 px-6 rounded-xl font-semibold transition-colors duration-200 text-base">
+                                <button className="border-2 border-gray-600 hover:border-gray-500 text-white hover:bg-gray-800/40 font-semibold text-[10px] sm:text-sm lg:text-base tracking-wide rounded-xl transition-all duration-300 flex items-center justify-center py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 min-w-[100px] sm:min-w-[120px] lg:min-w-[140px] hover:scale-[1.03]">
                                     Read Full Story
                                 </button>
                             </div>
+
+
                         </div>
                     </div>
                 </div>

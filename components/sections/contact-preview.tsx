@@ -17,7 +17,7 @@ export default function ContactPreview() {
 
     return (
         <section className="py-12 sm:py-16 md:py-20 bg-black relative overflow-hidden font-['Poppins',sans-serif]">
-            {/* Background Circles */}
+            {/* Background Blurs */}
             <div className="absolute inset-0">
                 <div className="absolute top-1/3 left-1/4 w-24 sm:w-32 h-24 sm:h-32 bg-blue-500/5 rounded-full blur-3xl" />
                 <div className="absolute bottom-1/4 right-1/3 w-32 sm:w-40 h-32 sm:h-40 bg-purple-500/5 rounded-full blur-3xl" />
@@ -27,7 +27,7 @@ export default function ContactPreview() {
                 {/* Headline */}
                 <div className="max-w-4xl">
                     <h2
-                        className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium mb-8 sm:mb-10 md:mb-12 tracking-[-0.02em]"
+                        className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium mb-10 tracking-[-0.02em]"
                         style={{ color: '#EBD6A4', lineHeight: '1.2' }}
                     >
                         Ready to Build<br />
@@ -68,7 +68,7 @@ export default function ContactPreview() {
                     </Link>
                 </div>
 
-                {/* Animated Line */}
+                {/* Transition Line */}
                 <div className="mt-12 sm:mt-16 md:mt-20 mb-8">
                     <div
                         className={`transition-all duration-1000 ease-out ${
@@ -83,56 +83,46 @@ export default function ContactPreview() {
                     />
                 </div>
 
-                {/* Footer Grid */}
-                <div className="flex flex-col lg:flex-row justify-between items-start lg:items-start gap-10 lg:gap-20">
-                    {/* Navigation */}
-                    <div className="flex flex-col gap-4">
-                        <h4 className="text-sm font-medium text-gray-300 uppercase tracking-wider">Navigation</h4>
-                        <div className="flex flex-col gap-2">
-                            <Link href="/" className="text-gray-400 hover:text-white text-sm transition">
-                                Home
-                            </Link>
-                            <Link href="/about" className="text-gray-400 hover:text-white text-sm transition">
-                                About
-                            </Link>
-                            <Link href="/projects" className="text-gray-400 hover:text-white text-sm transition">
-                                Projects
-                            </Link>
-                            <Link href="/contact" className="text-gray-400 hover:text-white text-sm transition">
-                                Contact
-                            </Link>
-                        </div>
+                {/* Footer Section */}
+                <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 lg:gap-20">
+                    {/* LEFT SIDE — NAME */}
+                    <div className="w-full lg:w-auto text-left">
+                        <h3 className="text-2xl sm:text-3xl lg:text-5xl font-medium text-[#EBD6A4] leading-tight">
+                            <span className="block">ARAVIND</span>
+                            <span className="block">KUMAR</span>
+                        </h3>
                     </div>
 
-                    {/* Connect */}
-                    <div className="flex flex-col gap-4">
-                        <h4 className="text-sm font-medium text-gray-300 uppercase tracking-wider">Connect</h4>
-                        <div className="flex flex-col gap-2">
-                            <Link href="https://github.com" target="_blank" className="text-gray-400 hover:text-white text-sm transition">
-                                GitHub
-                            </Link>
-                            <Link href="https://linkedin.com" target="_blank" className="text-gray-400 hover:text-white text-sm transition">
-                                LinkedIn
-                            </Link>
-                            <Link href="https://twitter.com" target="_blank" className="text-gray-400 hover:text-white text-sm transition">
-                                Twitter
-                            </Link>
-                            <Link href="mailto:aravind@example.com" className="text-gray-400 hover:text-white text-sm transition">
-                                Email
-                            </Link>
+                    {/* RIGHT SIDE — NAV + CONNECT */}
+                    <div className="w-full lg:w-auto flex flex-col sm:flex-row sm:justify-between gap-8 sm:gap-12 lg:gap-16">
+                        {/* NAVIGATION LINKS */}
+                        <div className="flex flex-col gap-1.5">
+                            <h4 className="text-sm font-medium text-gray-300 uppercase tracking-wider mb-1">Navigation</h4>
+                            <Link href="/" className="text-gray-400 hover:text-white text-sm transition">Home</Link>
+                            <Link href="/about" className="text-gray-400 hover:text-white text-sm transition">About</Link>
+                            <Link href="/projects" className="text-gray-400 hover:text-white text-sm transition">Projects</Link>
+                            <Link href="/contact" className="text-gray-400 hover:text-white text-sm transition">Contact</Link>
+                        </div>
+
+                        {/* CONNECT LINKS */}
+                        <div className="flex flex-col gap-1.5">
+                            <h4 className="text-sm font-medium text-gray-300 uppercase tracking-wider mb-1">Connect</h4>
+                            <Link href="https://github.com" target="_blank" className="text-gray-400 hover:text-white text-sm transition">GitHub</Link>
+                            <Link href="https://linkedin.com" target="_blank" className="text-gray-400 hover:text-white text-sm transition">LinkedIn</Link>
+                            <Link href="https://twitter.com" target="_blank" className="text-gray-400 hover:text-white text-sm transition">Twitter</Link>
+                            <Link href="mailto:aravind@example.com" className="text-gray-400 hover:text-white text-sm transition">Email</Link>
                         </div>
                     </div>
                 </div>
 
-                {/* Separator Line */}
-                <div className="mt-12 sm:mt-16 lg:mt-20 mb-6">
+                {/* Bottom Line */}
+                <div className="mt-12 sm:mt-16 lg:mt-20 mb-0">
                     <div className="w-full h-[0.5px] bg-neutral-800" />
                 </div>
 
-                {/* Name & Copyright */}
-                <div className="text-center space-y-2 pb-4 sm:pb-6">
-                    <p className="text-sm text-gray-400 font-medium">Aravind Chamakuri • Full Stack Developer</p>
-                    <p className="text-xs text-gray-500">
+                {/* Copyright */}
+                <div className="pt-4 pb-0">
+                    <p className="text-center text-gray-500 text-xs sm:text-sm">
                         © {new Date().getFullYear()} Aravind Chamakuri. All rights reserved.
                     </p>
                 </div>

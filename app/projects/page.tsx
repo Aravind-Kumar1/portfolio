@@ -1,4 +1,5 @@
 import ProjectGallery from "@/components/sections/project-gallery"
+import ContactPreview from "@/components/sections/contact-preview";
 
 export default function ProjectsPage() {
     return (
@@ -20,6 +21,7 @@ export default function ProjectsPage() {
                 <div className="container mx-auto px-4 py-16 w-full">
                     <ProjectGallery/>
                 </div>
+                <ContactPreview/>
             </div>
         </main>
     )

@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { ExternalLink, Calendar, Tag, Users, Code, Github, Globe, Clock, CheckCircle2, PlayCircle, Download, Share2, BookOpen, Target, Layers, ArrowRight, Eye, Lightbulb, Zap, Heart } from "lucide-react";
 import Link from "next/link";
 import { use } from "react";
+import ContactPreview from "@/components/sections/contact-preview";
 
 interface Props {
     params: Promise<{ slug: string }>;
@@ -383,13 +384,10 @@ export default function ProjectDetail({ params }: Props) {
                 </div>
             </section>
 
-            {/* Empty Section for Your Component */}
+            {/* Footer Section */}
             <section className="py-20">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                    {/* This is where you can place your component */}
-                    <div className="text-center text-gray-400">
-                        {/* Your custom component will go here */}
-                    </div>
+                    <ContactPreview />
                 </div>
             </section>
         </div>

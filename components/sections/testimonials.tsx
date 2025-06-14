@@ -50,10 +50,10 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-      <section className="py-24 bg-black overflow-hidden">
+      <section className="py-8 sm:py-12 md:py-16 lg:py-8 xl:py-8 bg-black overflow-hidden">
         <div className="container mx-auto px-4">
-          <div className="text-left mb-8 md:mb-12 lg:mb-16">
-            <div className="inline-block px-3 py-1 sm:px-4 sm:py-2 bg-white/10 rounded-full border border-white/20 mb-4 md:mb-6">
+          <div className="text-left mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-16">
+            <div className="inline-block px-3 py-1 sm:px-4 sm:py-2 bg-white/10 rounded-full border border-white/20 mb-3 sm:mb-4 md:mb-6">
             <span
                 className="text-white text-xs sm:text-sm font-medium"
                 style={{ fontFamily: "'Inter', 'SF Pro Display', sans-serif" }}
@@ -62,7 +62,7 @@ export default function Testimonials() {
             </span>
             </div>
             <h2
-                className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300 whitespace-normal md:whitespace-nowrap"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-4 lg:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300"
                 style={{ fontFamily: "'Poppins', 'Inter', sans-serif", fontWeight: 550, lineHeight: 1.2 }}
             >
               Real Feedback from
@@ -72,13 +72,13 @@ export default function Testimonials() {
           </div>
 
           <motion.div
-              className="flex gap-6"
+              className="flex gap-4 sm:gap-6"
               animate={{ x: ["0%", "-50%"] }}
               transition={{
                 x: {
                   repeat: Infinity,
                   repeatType: "loop",
-                  duration: 20,
+                  duration: 10,
                   ease: "linear",
                 },
               }}
@@ -87,46 +87,46 @@ export default function Testimonials() {
             {[...testimonials, ...testimonials].map((testimonial, index) => (
                 <motion.div
                     key={`testimonial-${index}`}
-                    className="min-w-[320px] max-w-[360px] flex-shrink-0"
+                    className="min-w-[280px] sm:min-w-[320px] max-w-[320px] sm:max-w-[360px] flex-shrink-0"
                     whileHover={{ scale: 1.03, zIndex: 10 }}
                     transition={{ type: "spring", stiffness: 200, damping: 20 }}
                 >
                   <Card
-                      className="bg-black/80 border-white/10 hover:border-white/30 transition-all duration-300 shadow-2xl"
+                      className="bg-black/80 border-white/10 hover:border-white/30 transition-all duration-300 shadow-2xl h-full"
                       style={{ fontFamily: "'Poppins', sans-serif" }}
                   >
-                    <CardContent className="p-6">
-                      <div className="flex mb-4">
+                    <CardContent className="p-4 sm:p-6 h-full flex flex-col">
+                      <div className="flex mb-3 sm:mb-4">
                         {[...Array(testimonial.rating)].map((_, i) => (
                             <Star
                                 key={i}
-                                className="h-5 w-5 text-yellow-400 fill-current transition-transform duration-300 hover:scale-125"
+                                className="h-4 w-4 sm:h-5 sm:w-5 text-yellow-400 fill-current transition-transform duration-300 hover:scale-125"
                             />
                         ))}
                       </div>
                       <p
-                          className="text-gray-200 mb-6 leading-relaxed italic text-base"
+                          className="text-gray-200 mb-4 sm:mb-6 leading-relaxed italic text-sm sm:text-base flex-grow"
                           style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 400 }}
                       >
                         "{testimonial.content}"
                       </p>
-                      <div className="flex items-center">
+                      <div className="flex items-center mt-auto">
                         <Image
                             src={testimonial.image || "/placeholder.svg"}
                             alt={testimonial.name}
                             width={60}
                             height={60}
-                            className="w-12 h-12 rounded-full mr-4 border-2 border-white/20"
+                            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full mr-3 sm:mr-4 border-2 border-white/20 flex-shrink-0"
                         />
-                        <div>
+                        <div className="min-w-0 flex-1">
                           <h4
-                              className="text-white font-semibold"
+                              className="text-white font-semibold text-sm sm:text-base truncate"
                               style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 600 }}
                           >
                             {testimonial.name}
                           </h4>
                           <p
-                              className="text-gray-400 text-sm"
+                              className="text-gray-400 text-xs sm:text-sm leading-tight"
                               style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 400 }}
                           >
                             {testimonial.role}

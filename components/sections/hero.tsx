@@ -48,19 +48,21 @@ export default function HeroSection() {
                         </div>
 
                         {/* CTA Buttons - Side by Side for All Screens */}
-                        <div className="flex flex-row gap-2 sm:gap-3 md:gap-4 justify-center mt-6 sm:mt-8 md:mt-12 px-2 sm:px-0">
+                        <div
+                            className="flex flex-row gap-2 sm:gap-3 md:gap-4 justify-center mt-6 sm:mt-8 md:mt-12 px-2 sm:px-0">
                             <button
-                                className="group relative px-1.5 py-1 sm:px-4 sm:py-2.5 md:px-8 md:py-4 bg-blue-600 text-white font-semibold text-xs sm:text-sm md:text-base tracking-wide rounded-xl hover:bg-blue-700 transition-all duration-300 flex items-center justify-center shadow-2xl min-w-[140px] sm:min-w-[160px] md:min-w-[180px] transform hover:scale-105"
+                                className="group relative px-1.5 py-2 sm:px-4 sm:py-2.5 md:px-8 md:py-4 bg-blue-600 text-white font-semibold text-xs sm:text-sm md:text-base tracking-wide rounded-xl hover:bg-blue-700 transition-all duration-300 flex items-center justify-center shadow-2xl min-w-[140px] sm:min-w-[160px] md:min-w-[180px] transform hover:scale-105"
                                 onMouseEnter={() => setHoveredButton('primary')}
                                 onMouseLeave={() => setHoveredButton(null)}
                             >
-                                <span className="flex items-center">
-                                  View My Work
-                                  <ArrowRight className="ml-1 sm:ml-2 w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform duration-300"/>
-                                </span>
+    <span className="flex items-center">
+      View My Work
+      <ArrowRight
+          className="ml-1 sm:ml-2 w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform duration-300"/>
+    </span>
                             </button>
                             <button
-                                className="px-1.5 py-1 sm:px-4 sm:py-2.5 md:px-8 md:py-4 border-2 border-white text-white font-semibold text-xs sm:text-sm md:text-base tracking-wide rounded-xl hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center min-w-[140px] sm:min-w-[160px] md:min-w-[180px] transform hover:scale-105"
+                                className="px-1.5 py-2 sm:px-4 sm:py-2.5 md:px-8 md:py-4 border-2 border-white text-white font-semibold text-xs sm:text-sm md:text-base tracking-wide rounded-xl hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center min-w-[140px] sm:min-w-[160px] md:min-w-[180px] transform hover:scale-105"
                                 onMouseEnter={() => setHoveredButton('secondary')}
                                 onMouseLeave={() => setHoveredButton(null)}
                             >
@@ -68,10 +70,12 @@ export default function HeroSection() {
                             </button>
                         </div>
 
+
                         {/* Social Links - Better Mobile Spacing */}
                         <div className="flex justify-center items-center mt-8 sm:mt-10 md:mt-2 mb-6 sm:mb-8 md:mb-4">
                             <div className="flex flex-col items-center gap-2 sm:gap-2.5 md:gap-2">
-                                <div className="w-px h-4 sm:h-5 md:h-6 bg-gradient-to-b from-transparent via-white/30 to-transparent"></div>
+                                <div
+                                    className="w-px h-4 sm:h-5 md:h-6 bg-gradient-to-b from-transparent via-white/30 to-transparent"></div>
                                 <p className="text-white/70 text-xs sm:text-xs md:text-sm font-medium tracking-wider uppercase">
                                     Connect
                                 </p>
@@ -93,7 +97,8 @@ export default function HeroSection() {
                                         </a>
                                     ))}
                                 </div>
-                                <div className="w-px h-3 sm:h-3 md:h-3 bg-gradient-to-b from-white/30 via-transparent to-transparent"></div>
+                                <div
+                                    className="w-px h-3 sm:h-3 md:h-3 bg-gradient-to-b from-white/30 via-transparent to-transparent"></div>
                             </div>
                         </div>
                     </div>
